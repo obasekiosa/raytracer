@@ -10,8 +10,12 @@ public class Point3 extends Tuple3 {
         this.w = 1.0;
     }
 
-    public Point3 add(Point3 a, Point3 b) {
+    public static Point3 add(Point3 a, Point3 b) {
         return new Point3(a.x + b.x, a.y + b.y, a.z + b.z);
+    }
+
+    public Point3 add(Point3 other) {
+        return new Point3(this.x + other.x, this.y + other.y, this.z + other.z);
     }
 
     @Override
