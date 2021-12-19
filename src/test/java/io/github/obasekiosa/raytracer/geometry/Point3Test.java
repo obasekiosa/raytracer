@@ -26,7 +26,7 @@ public class Point3Test {
     @Test
     public void testIsInstanceOfTuple() {
         Point3 point3 = new Point3(4.3, -4.2, 3.1);
-        assertTrue(point3 + " object is a Point", point3 instanceof Tuple3);
+        assertTrue(point3 + " object is a Point3", point3 instanceof Tuple3);
     }
 
     @Test
@@ -47,6 +47,15 @@ public class Point3Test {
         verifyPoint3(9.6, -8.7, -0.2, 1.0, result, this.EPISILON);
     }
 
+    /**
+     * 
+     * @param expectedX
+     * @param expectedY
+     * @param expectedZ
+     * @param expectedW
+     * @param point3
+     * @param delta
+     */
     private void verifyPoint3(
         double expectedX, 
         double expectedY, 
@@ -57,7 +66,7 @@ public class Point3Test {
         ) {
 
             assertNotNull("Result object is not null", point3);
-            assertTrue("Result object is a point", point3 instanceof Point3);
+            assertTrue("Result object is a Point3", point3 instanceof Point3);
             assertEquals("Result X value is correct", expectedX, point3.getX(), delta);
             assertEquals("Result Y value is correct", expectedY, point3.getY(), delta);
             assertEquals("Result Z value is correct", expectedZ, point3.getZ(), delta);
