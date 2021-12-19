@@ -7,6 +7,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import io.github.obasekiosa.raytracer.basic.Tuple3;
+
 public class Vector3Test {
     
     public double EPISILON;
@@ -27,6 +29,9 @@ public class Vector3Test {
         Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);
         assertTrue(vector3 + " object is a Vector3", vector3 instanceof Tuple3);
     }
+
+    //Todo 
+    // Add tests to ensure objects remain thesame after operations are performed
 
     @Test
     public void testAddVector3ToSelfAndReturnsNewInstance() {
