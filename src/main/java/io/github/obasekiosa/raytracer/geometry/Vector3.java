@@ -9,8 +9,12 @@ public class Vector3 extends Tuple3 {
         this.w = 0.0;
     }
 
-    public Vector3 add(Vector3 a, Vector3 b) {
+    public static Vector3 add(Vector3 a, Vector3 b) {
         return new Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
+    }
+
+    public Vector3 add(Vector3 other) {
+        return new Vector3(this.x + other.x, this.y + other.y, this.z + other.z);
     }
 
     @Override
