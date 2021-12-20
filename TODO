@@ -1,4 +1,6 @@
-// Test toString methods
+// Test toString methods 
+// Test equals methods
+// test getters and setters
 Point3 Todo: 
     // Add tests to ensure objects remain thesame after operations are performed
     // objects are different after operation
