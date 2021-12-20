@@ -60,7 +60,7 @@ public class Tuple3 {
     }
 
     public Tuple3 subtract(Tuple3 other) {
-        throw new UnsupportedOperationException("This method has not been implemented");
+        return new Tuple3(this.x1 - other.x1, this.x2 - other.x2, this.x3 - other.x3, this.x4 - other.x4);
     }
 
     public static Tuple3 subtract(Tuple3 a, Tuple3 b) {
