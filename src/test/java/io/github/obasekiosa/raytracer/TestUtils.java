@@ -1,8 +1,12 @@
-package io.github.obasekiosa.raytracer.geometry;
+package io.github.obasekiosa.raytracer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import io.github.obasekiosa.raytracer.basic.Tuple3;
+import io.github.obasekiosa.raytracer.geometry.Point3;
+import io.github.obasekiosa.raytracer.geometry.Vector3;
 
 public abstract class TestUtils {
     
@@ -55,6 +59,32 @@ public abstract class TestUtils {
         assertEquals("Result Y value is correct", expectedY, point3.getY(), delta);
         assertEquals("Result Z value is correct", expectedZ, point3.getZ(), delta);
         assertEquals("Result W value is correct", expectedW, point3.getW(), delta);
+
+    }
+
+    /**
+     * 
+     * @param expectedX1
+     * @param expectedX2
+     * @param expectedX3
+     * @param expectedX4
+     * @param tuple3
+     * @param delta
+     */
+    public static void verifyTuple3(
+            double expectedX1,
+            double expectedX2,
+            double expectedX3,
+            double expectedX4,
+            Tuple3 tuple3,
+            double delta) {
+
+        assertNotNull("Result object is not null", tuple3);
+        assertTrue("Result object is a Tuple3", tuple3 instanceof Tuple3);
+        assertEquals("Result X1 value is correct", expectedX1, tuple3.getX1(), delta);
+        assertEquals("Result X2 value is correct", expectedX2, tuple3.getX2(), delta);
+        assertEquals("Result X3 value is correct", expectedX3, tuple3.getX3(), delta);
+        assertEquals("Result X4 value is correct", expectedX4, tuple3.getX4(), delta);
 
     }
 }

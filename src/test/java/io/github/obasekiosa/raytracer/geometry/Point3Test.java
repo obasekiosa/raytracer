@@ -1,13 +1,12 @@
 package io.github.obasekiosa.raytracer.geometry;
 
+import static io.github.obasekiosa.raytracer.TestUtils.verifyPoint3;
+import static io.github.obasekiosa.raytracer.TestUtils.verifyVector3;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static io.github.obasekiosa.raytracer.geometry.TestUtils.verifyPoint3;
-import static io.github.obasekiosa.raytracer.geometry.TestUtils.verifyVector3;
 
 import io.github.obasekiosa.raytracer.basic.Tuple3;
 
