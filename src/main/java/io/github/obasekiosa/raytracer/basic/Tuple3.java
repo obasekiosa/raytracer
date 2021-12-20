@@ -68,7 +68,7 @@ public class Tuple3 {
     }
 
     public static Tuple3 zero() {
-        throw new UnsupportedOperationException("This method has not been implemented");
+        return new Tuple3(0, 0, 0, 0);
     }
 
     public static Tuple3 negate(Tuple3 tuple3) {
