@@ -1,6 +1,6 @@
 package io.github.obasekiosa.raytracer.basic;
 
-public abstract class Tuple3 {
+public class Tuple3 {
 
     protected double x1;
 
@@ -76,6 +76,11 @@ public abstract class Tuple3 {
         if (Double.doubleToLongBits(x4) != Double.doubleToLongBits(other.x4))
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Tuple3 (x1=" + x1 + ", x2=" + x2 + ", x3=" + x3 + ", x4=" + x4 + ")";
     }
 
     
