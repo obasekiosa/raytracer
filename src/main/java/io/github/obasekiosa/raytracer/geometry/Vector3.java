@@ -87,7 +87,7 @@ public class Vector3 extends Tuple3 {
 
     @Override
     public String toString() {
-        return "Vector3 [ x=" + getX() + ", y=" + getY() + ", z=" + getZ() + "]";
+        return "Vector3 ( x=" + getX() + ", y=" + getY() + ", z=" + getZ() + ")";
     }
     
 }
