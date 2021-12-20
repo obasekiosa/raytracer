@@ -77,9 +77,21 @@ public class Point3 extends Tuple3 {
         return new Point3(point3.getX() - vector3.getX(), point3.getY() - vector3.getY(), point3.getZ() - vector3.getZ());
     }
 
+    public static Point3 zero() {
+        return new Point3(0, 0, 0);
+    }
+
+    public static Point3 negate(Point3 point3) {
+        return new Point3(-point3.getX(), -point3.getY(), -point3.getZ());
+    }
+
+    public Point3 negate() {
+        return new Point3(-this.getX(), -this.getY(), -this.getZ());
+    }
+
     @Override
     public String toString() {
-        return "Point3 [ x=" + getX() + ", y=" + getY() + ", z=" + getZ() + "]";
+        return "Point3 ( x=" + getX() + ", y=" + getY() + ", z=" + getZ() + ")";
     }
     
 }
