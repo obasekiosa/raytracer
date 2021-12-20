@@ -79,6 +79,14 @@ public class Tuple3 {
         return new Tuple3(-this.x1, -this.x2, -this.x3, -this.x4);
     }
 
+    public Tuple3 multiply(double scalar) {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
+    public static Tuple3 multiply(Tuple3 tuple3, double scalar) {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
