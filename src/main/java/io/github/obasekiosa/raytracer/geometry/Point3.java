@@ -56,12 +56,12 @@ public class Point3 extends Tuple3 {
         return new Point3(a.getX() + b.getX(), a.getY() + b.getY(), a.getZ() + b.getZ());
     }
 
-    public static Point3 add(Point3 a, Vector3 b) {
-        throw new UnsupportedOperationException("This method has not been Implemented");
+    public static Point3 add(Point3 point3, Vector3 vector3) {
+        return new Point3(point3.getX() + vector3.getX(), point3.getY() + vector3.getY(), point3.getZ() + vector3.getZ())
     }
 
-    public static Point3 add(Vector3 a, Point3 b) {
-        throw new UnsupportedOperationException("This method has not been Implemented");
+    public static Point3 add(Vector3 vector3, Point3 point3) {
+        return new Point3(vector3.getX() + point3.getX(), vector3.getY() + point3.getY(), vector3.getZ() + point3.getZ())
     }
 
     public Vector3 subtract(Point3 other) {
