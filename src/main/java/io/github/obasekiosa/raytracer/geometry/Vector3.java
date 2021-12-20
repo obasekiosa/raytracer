@@ -43,13 +43,38 @@ public class Vector3 extends Tuple3 {
         return this.x4;
     }
 
+    public Vector3 add(Vector3 other) {
+        return new Vector3(this.getX() + other.getX(), this.getY() + other.getY(), this.getZ() + other.getZ());
+    }
+
+    public Point3 add(Point3 point3) {
+        throw new UnsupportedOperationException("This method has not been Implemented");
+    }
+
     public static Vector3 add(Vector3 a, Vector3 b) {
         return new Vector3(a.getX() + b.getX(), a.getY() + b.getY(), a.getZ() + b.getZ());
     }
 
-    public Vector3 add(Vector3 other) {
-        return new Vector3(this.getX() + other.getX(), this.getY() + other.getY(), this.getZ() + other.getZ());
+    public static Point3 add(Point3 point3, Vector3 vector3) {
+        throw new UnsupportedOperationException("This method has not been Implemented");
     }
+
+    public static Point3 add(Vector3 vector3, Point3 point3) {
+        throw new UnsupportedOperationException("This method has not been Implemented");
+    }
+
+    public Vector3 subtract(Vector3 other) {
+        throw new UnsupportedOperationException("This method has not been Implemented");
+    }
+
+    public static Vector3 subtract(Vector3 a, Vector3 b) {
+        throw new UnsupportedOperationException("This method has not been Implemented");
+    }
+
+    public static Point3 subtract(Point3 point3, Vector3 vector3) {
+        throw new UnsupportedOperationException("This method has not been Implemented");
+    }
+
 
     @Override
     public String toString() {
