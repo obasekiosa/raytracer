@@ -6,10 +6,7 @@ public class Point3 extends Tuple3 {
 
 
     public Point3(double x, double y, double z) {
-        this.x1 = x;
-        this.x2 = y;
-        this.x3 = z;
-        this.x4 = 1.0;
+        super(x, y, z, 1.0);
     }
 
     public void setX(double x) {

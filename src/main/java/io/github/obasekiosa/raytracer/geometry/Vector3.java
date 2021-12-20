@@ -5,10 +5,7 @@ import io.github.obasekiosa.raytracer.basic.Tuple3;
 public class Vector3 extends Tuple3 {
 
     public Vector3(double x, double y, double z) {
-        this.x1 = x;
-        this.x2 = y;
-        this.x3 = z;
-        this.x4 = 0.0;
+        super(x, y, z, 0.0);
     }
 
     public void setX(double x) {
