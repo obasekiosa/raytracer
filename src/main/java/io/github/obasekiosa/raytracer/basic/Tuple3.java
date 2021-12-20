@@ -87,6 +87,27 @@ public class Tuple3 {
         return new Tuple3(scalar * tuple3.x1, scalar * tuple3.x2, scalar * tuple3.x3, scalar * tuple3.x4);
     }
 
+    public Tuple3 divide(double scalar) {
+        if (scalar == 0 && (this.x1 == 0 || this.x2 == 0 || this.x3 == 0 || this.x4 == 0)) {
+            throw new ArithmeticException("Can not divide zero by zero");
+        } else if (scalar == 0) {
+            return new Tuple3(
+                this.x1 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                this.x2 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                this.x3 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                this.x4 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY
+                );
+        } else {
+            return new Tuple3(this.x1 / scalar, this.x2 / scalar,this.x3 / scalar, this.x4 / scalar);
+        }
+    }
+
+    public static Tuple3 divide(Tuple3 tuple3, double scalar) {
+        return tuple3.divide(scalar);
+    }
+
+
+
     @Override
     public int hashCode() {
         final int prime = 31;
