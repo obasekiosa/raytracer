@@ -89,7 +89,7 @@ public class Tuple3Test {
     public void test_InstanceMethod_Multiply_Tuple3ByDoubleReturnTuple3() {
         Tuple3 tuple3 = new Tuple3(1, -2, 3, -4);
         double scalar = 3.5;
-        Tuple3 result = Tuple3.multiply(tuple3, scalar);
+        Tuple3 result = tuple3.multiply(scalar);
 
         verifyTuple3(3.5, -7, 10.5, -14, result, this.EPISILON);
     }
@@ -98,7 +98,7 @@ public class Tuple3Test {
     public void test_StaticMethod_Multiply_DoubleReturnTuple3() {
         Tuple3 tuple3 = new Tuple3(1, -2, 3, -4);
         double scalar = 3.5;
-        Tuple3 result = tuple3.multiply(scalar);
+        Tuple3 result = Tuple3.multiply(tuple3, scalar);
 
         verifyTuple3(3.5, -7, 10.5, -14, result, this.EPISILON);
     }
