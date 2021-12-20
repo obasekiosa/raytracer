@@ -84,7 +84,7 @@ public class Tuple3 {
     }
 
     public static Tuple3 multiply(Tuple3 tuple3, double scalar) {
-        throw new UnsupportedOperationException("This method has not been implemented");
+        return new Tuple3(scalar * tuple3.x1, scalar * tuple3.x2, scalar * tuple3.x3, scalar * tuple3.x4);
     }
 
     @Override
