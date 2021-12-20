@@ -33,13 +33,6 @@ public class Vector3Test {
         assertTrue(vector3 + " object is a Vector3", vector3 instanceof Tuple3);
     }
 
-    //Todo 
-    // Add tests to ensure objects remain thesame after operations are performed
-    // objects are different after operation
-    // Add returns instance of Vector3 (Separate test)
-    // Add test for commutative, associative property
-    // 
-
     @Test
     public void test_InstanceMethod_Add_TwoVector3AndReturnVector3() {
         Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);

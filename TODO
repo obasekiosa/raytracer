@@ -1,0 +1,14 @@
+
+Point3 Todo: 
+    // Add tests to ensure objects remain thesame after operations are performed
+    // objects are different after operation
+    // Add returns instance of Vector3 (Separate test)
+    // Add test for commutative, associative property
+    // Add null object passed as input should throw exceptions tests
+
+Vector3 Todo: 
+    // Add tests to ensure objects remain thesame after operations are performed
+    // objects are different after operation
+    // Add returns instance of Vector3 (Separate test)
+    // Add test for commutative, associative property
+    // Add null object passed as input should throw exceptions tests
