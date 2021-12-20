@@ -77,7 +77,7 @@ public class Point3Test {
         Point3 point3 = new Point3(5.3, -4.5, -3.3);
         Point3 result = Point3.add(vector3, point3);
 
-        verifyPoint3(9.6, -8.7, -0.2, 0.0, result, this.EPISILON);
+        verifyPoint3(9.6, -8.7, -0.2, 1.0, result, this.EPISILON);
     }
 
 
