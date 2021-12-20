@@ -82,7 +82,7 @@ public class Point3 extends Tuple3 {
 
     @Override
     public String toString() {
-        return "Point3 [ x=" + getX() + ", y=" + getY() + ", z=" + getW() + "]";
+        return "Point3 [ x=" + getX() + ", y=" + getY() + ", z=" + getZ() + "]";
     }
     
 }

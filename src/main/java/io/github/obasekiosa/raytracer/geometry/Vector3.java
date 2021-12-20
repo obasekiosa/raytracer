@@ -75,10 +75,14 @@ public class Vector3 extends Tuple3 {
         return new Point3(point3.getX() - vector3.getX(), point3.getY() - vector3.getY(), point3.getZ() - vector3.getZ());
     }
 
+    public static Vector3 zero() {
+        return new Vector3(0, 0, 0);
+    }
+
 
     @Override
     public String toString() {
-        return "Vector3 [ x=" + getX() + ", y=" + getY() + ", z=" + getW() + "]";
+        return "Vector3 [ x=" + getX() + ", y=" + getY() + ", z=" + getZ() + "]";
     }
     
 }

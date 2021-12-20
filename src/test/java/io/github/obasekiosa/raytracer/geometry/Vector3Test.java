@@ -104,5 +104,10 @@ public class Vector3Test {
         verifyPoint3(-2, -4, -6, 1.0, result, this.EPISILON);
     }
 
+    @Test
+    public void test_StaticMethod_Zero_ReturnVetor3AllZero() {
+        Vector3 result = Vector3.zero();
+        verifyVector3(0, 0, 0, 0.0, result, 0);
+    }
     
 }
