@@ -46,8 +46,8 @@ public class Tuple3Test {
 
     @Test
     public void test_StaticMethod_Subtract_TwoTuple3ReturnTuple3() {
-        Tuple3 tuple3 = new Tuple3(3, 2, 1, 1);
-        Tuple3 otherTuple3 = new Tuple3(5, 6, 7, 4);
+        Tuple3 tuple3 = new Tuple3(3, 2, 1, 4);
+        Tuple3 otherTuple3 = new Tuple3(5, 6, 7, 1);
         Tuple3 result = Tuple3.subtract(tuple3, otherTuple3);
 
         verifyTuple3(-2, -4, -6, 3, result, this.EPISILON);
