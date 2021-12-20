@@ -9,6 +9,9 @@ import org.junit.Test;
 
 import io.github.obasekiosa.raytracer.basic.Tuple3;
 
+import static io.github.obasekiosa.raytracer.geometry.TestUtils.verifyVector3;
+import static io.github.obasekiosa.raytracer.geometry.TestUtils.verifyPoint3;;
+
 public class Vector3Test {
     
     public double EPISILON;
@@ -32,9 +35,13 @@ public class Vector3Test {
 
     //Todo 
     // Add tests to ensure objects remain thesame after operations are performed
+    // objects are different after operation
+    // Add returns instance of Vector3 (Separate test)
+    // Add test for commutative, associative property
+    // 
 
     @Test
-    public void testAddVector3ToSelfAndReturnsNewInstance() {
+    public void test_InstanceMethod_Add_TwoVector3AndReturnVector3() {
         Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);
         Vector3 otherVector3 = new Vector3(5.3, -4.5, -3.3);
         Vector3 result = vector3.add(otherVector3);
@@ -43,7 +50,7 @@ public class Vector3Test {
     }
 
     @Test
-    public void testAddsTwoVector3AndReturnsNewInstance() {
+    public void test_StaticMethod_Add_TwoVector3AndReturnVector3() {
         Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);
         Vector3 otherVector3 = new Vector3(5.3, -4.5, -3.3);
         Vector3 result = Vector3.add(vector3, otherVector3);
@@ -51,30 +58,59 @@ public class Vector3Test {
         verifyVector3(9.6, -8.7, -0.2, 0.0, result, this.EPISILON);
     }
 
-    /**
-     * 
-     * @param expectedX double
-     * @param expectedY
-     * @param expectedZ
-     * @param expectedW
-     * @param vector3
-     * @param delta
-     */
-    private void verifyVector3(
-            double expectedX,
-            double expectedY,
-            double expectedZ,
-            double expectedW,
-            Vector3 vector3,
-            double delta
-            ) {
+    @Test
+    public void test_InstanceMethod_Add_Point3ToVector3AndReturnPoint3() {
+        Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);
+        Point3 point3 = new Point3(5.3, -4.5, -3.3);
+        Point3 result = vector3.add(point3);
 
-        assertNotNull("Result object is not null", vector3);
-        assertTrue("Result object is a Vector3", vector3 instanceof Vector3);
-        assertEquals("Result X value is correct", expectedX, vector3.getX(), delta);
-        assertEquals("Result Y value is correct", expectedY, vector3.getY(), delta);
-        assertEquals("Result Z value is correct", expectedZ, vector3.getZ(), delta);
-        assertEquals("Result W value is correct", expectedW, vector3.getW(), delta);
-
+        verifyPoint3(9.6, -8.7, -0.2, 1.0, result, this.EPISILON);
     }
+
+    @Test
+    public void test_StaticMethod_Add_Vector3ToPoint3AndReturnPoint3() {
+        Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);
+        Point3 point3 = new Point3(5.3, -4.5, -3.3);
+        Point3 result = Vector3.add(point3, vector3);
+
+        verifyPoint3(9.6, -8.7, -0.2, 1.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Add_Point3ToVector3AndReturnPoint3() {
+        Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);
+        Point3 point3 = new Point3(5.3, -4.5, -3.3);
+        Point3 result = Vector3.add(vector3, point3);
+
+        verifyPoint3(9.6, -8.7, -0.2, 1.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Subtract_TwoVector3AndReturnVector3() {
+        Vector3 vector3 = new Vector3(3, 2, 1);
+        Vector3 otheVector3 = new Vector3(5, 6, 7);
+        Vector3 result = Vector3.subtract(vector3, otheVector3);
+
+        verifyVector3(-2, -4, -6, 0.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_InstanceMethod_Subtract_TwoVector3AndReturnVector3() {
+        Vector3 vector3 = new Vector3(3, 2, 1);
+        Vector3 otheVector3 = new Vector3(5, 6, 7);
+        Vector3 result = vector3.subtract(otheVector3);
+
+        verifyVector3(-2, -4, -6, 0.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Subtract_Vector3FromPoint3AndReturnPoint3() {
+        Point3 point3 = new Point3(3, 2, 1);
+        Vector3 vector3 = new Vector3(5, 6, 7);
+        Point3 result = Vector3.subtract(point3, vector3);
+
+        verifyPoint3(-2, -4, -6, 1.0, result, this.EPISILON);
+    }
+
+    
 }
