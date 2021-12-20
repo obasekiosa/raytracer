@@ -133,5 +133,40 @@ public class Vector3Test {
 
         verifyVector3(-1, 2, -3, 0.0, result, 0);
     }
-    
+
+    @Test
+    public void test_InstanceMethod_Multiply_Point3ByDoubleReturnVector3() {
+        Vector3 point3 = new Vector3(1, -2, 3);
+        double scalar = 3.5;
+        Vector3 result = point3.multiply(scalar);
+
+        verifyVector3(3.5, -7, 10.5, 0.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Multiply_DoubleReturnVector3() {
+        Vector3 vector3 = new Vector3(1, -2, 3);
+        double scalar = 3.5;
+        Vector3 result = Vector3.multiply(vector3, scalar);
+
+        verifyVector3(3.5, -7, 10.5, 0.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_InstanceMethod_Divide_Point3ByDoubleReturnVector3() {
+        Vector3 vector3 = new Vector3(1, -2, 3);
+        double scalar = 2;
+        Vector3 result = vector3.divide(scalar);
+
+        verifyVector3(0.5, -1, 1.5, 0.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Divide_DoubleReturnVector3() {
+        Vector3 vector3 = new Vector3(1, -2, 3);
+        double scalar = 2;
+        Vector3 result = Vector3.divide(vector3, scalar);
+
+        verifyVector3(0.5, -1, 1.5, 0.0, result, this.EPISILON);
+    }
 }
