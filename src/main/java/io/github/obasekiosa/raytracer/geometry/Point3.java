@@ -77,7 +77,7 @@ public class Point3 extends Tuple3 {
     }
 
     public static Point3 subtract(Point3 point3, Vector3 vector3) {
-        throw new UnsupportedOperationException("This method has not been Implemented");
+        return new Point3(point3.getX() - vector3.getX(), point3.getY() - vector3.getY(), point3.getZ() - vector3.getZ());
     }
 
     @Override
