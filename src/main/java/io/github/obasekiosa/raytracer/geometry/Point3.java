@@ -89,6 +89,40 @@ public class Point3 extends Tuple3 {
         return new Point3(-this.getX(), -this.getY(), -this.getZ());
     }
 
+
+    public Point3 multiply(double scalar) {
+        return Point3.multiply(this, scalar);
+    }
+
+    public static Point3 multiply(Point3 point3, double scalar) {
+        if (point3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+        return new Point3(scalar * point3.x1, scalar * point3.x2, scalar * point3.x3);
+    }
+
+    public Point3 divide(double scalar) {
+        return Point3.divide(this, scalar);
+    }
+
+    public static Point3 divide(Point3 point3, double scalar) {
+        if (point3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+
+        if (scalar == 0 && (point3.getX() == 0 || point3.getY() == 0 || point3.getZ() == 0)) {
+            throw new ArithmeticException("Can not divide zero by zero");
+        } else if (scalar == 0) {
+            return new Point3(
+                    point3.getX() < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                    point3.getY() < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                    point3.getZ() < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY
+            );
+        } else {
+            return new Point3(point3.getX() / scalar, point3.getY() / scalar, point3.getZ() / scalar);
+        }
+    }
+
     @Override
     public String toString() {
         return "Point3 ( x=" + getX() + ", y=" + getY() + ", z=" + getZ() + ")";
