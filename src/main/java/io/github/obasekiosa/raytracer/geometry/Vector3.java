@@ -64,7 +64,7 @@ public class Vector3 extends Tuple3 {
     }
 
     public Vector3 subtract(Vector3 other) {
-        throw new UnsupportedOperationException("This method has not been Implemented");
+        return new Vector3(this.getX() - other.getX(), this.getY() - other.getY(), this.getZ() - other.getZ());
     }
 
     public static Vector3 subtract(Vector3 a, Vector3 b) {
