@@ -52,18 +52,25 @@ public class Tuple3 {
     }
 
     public Tuple3 add(Tuple3 other) {
-        return new Tuple3(this.x1 + other.x1, this.x2 + other.x2, this.x3 + other.x3, this.x4 + other.x4);
+        return Tuple3.add(this, other);
     }
 
     public static Tuple3 add(Tuple3 a, Tuple3 b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
         return new Tuple3(a.x1 + b.x1, a.x2 + b.x2, a.x3 + b.x3, a.x4 + b.x4);
     }
 
     public Tuple3 subtract(Tuple3 other) {
-        return new Tuple3(this.x1 - other.x1, this.x2 - other.x2, this.x3 - other.x3, this.x4 - other.x4);
+        
+        return Tuple3.subtract(this, other);
     }
 
     public static Tuple3 subtract(Tuple3 a, Tuple3 b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
         return new Tuple3(a.x1 - b.x1, a.x2 - b.x2, a.x3 - b.x3, a.x4 - b.x4);
     }
 
@@ -72,38 +79,48 @@ public class Tuple3 {
     }
 
     public static Tuple3 negate(Tuple3 tuple3) {
+        if (tuple3 == null) {
+            throw new IllegalArgumentException("Argument can not be null");
+        }
         return new Tuple3(-tuple3.x1, -tuple3.x2, -tuple3.x3, -tuple3.x4);
     }
 
     public Tuple3 negate() {
-        return new Tuple3(-this.x1, -this.x2, -this.x3, -this.x4);
+        return Tuple3.negate(this);
     }
 
     public Tuple3 multiply(double scalar) {
-        return new Tuple3(scalar * this.x1, scalar * this.x2, scalar * this.x3, scalar * this.x4);
+        return Tuple3.multiply(this, scalar);
     }
 
     public static Tuple3 multiply(Tuple3 tuple3, double scalar) {
+        if (tuple3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
         return new Tuple3(scalar * tuple3.x1, scalar * tuple3.x2, scalar * tuple3.x3, scalar * tuple3.x4);
     }
 
     public Tuple3 divide(double scalar) {
-        if (scalar == 0 && (this.x1 == 0 || this.x2 == 0 || this.x3 == 0 || this.x4 == 0)) {
-            throw new ArithmeticException("Can not divide zero by zero");
-        } else if (scalar == 0) {
-            return new Tuple3(
-                this.x1 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
-                this.x2 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
-                this.x3 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
-                this.x4 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY
-                );
-        } else {
-            return new Tuple3(this.x1 / scalar, this.x2 / scalar,this.x3 / scalar, this.x4 / scalar);
-        }
+        return Tuple3.divide(this, scalar);
     }
 
     public static Tuple3 divide(Tuple3 tuple3, double scalar) {
-        return tuple3.divide(scalar);
+        if (tuple3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+
+        if (scalar == 0 && (tuple3.x1 == 0 || tuple3.x2 == 0 || tuple3.x3 == 0 || tuple3.x4 == 0)) {
+            throw new ArithmeticException("Can not divide zero by zero");
+        } else if (scalar == 0) {
+            return new Tuple3(
+                    tuple3.x1 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                    tuple3.x2 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                    tuple3.x3 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                    tuple3.x4 < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY
+                    );
+        } else {
+            return new Tuple3(tuple3.x1 / scalar, tuple3.x2 / scalar, tuple3.x3 / scalar, tuple3.x4 / scalar);
+        }
     }
 
 
