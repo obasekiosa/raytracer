@@ -109,5 +109,15 @@ public class Vector3Test {
         Vector3 result = Vector3.zero();
         verifyVector3(0, 0, 0, 0.0, result, 0);
     }
+
+    @Test 
+    public void test_StaticMethod_Subtract_Vector3FromZeroVector3ReturnsVector3() {
+        Vector3 zero = Vector3.zero();
+        Vector3 vector3 = new Vector3(1, -2, 3);
+
+        Vector3 result = Vector3.subtract(zero, vector3);
+
+        verifyVector3(-1, 2, -3, 0.0, result, this.EPISILON);
+    }
     
 }
