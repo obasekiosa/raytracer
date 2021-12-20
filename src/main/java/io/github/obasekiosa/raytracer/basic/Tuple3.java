@@ -76,7 +76,7 @@ public class Tuple3 {
     }
 
     public Tuple3 negate() {
-        throw new UnsupportedOperationException("This method has not been implemented");
+        return new Tuple3(-this.x1, -this.x2, -this.x3, -this.x4);
     }
 
     @Override
