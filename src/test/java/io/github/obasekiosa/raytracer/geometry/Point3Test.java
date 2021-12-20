@@ -138,5 +138,41 @@ public class Point3Test {
         verifyPoint3(-1, 2, -3, 1.0, result, 0);
     }
 
+    @Test
+    public void test_InstanceMethod_Multiply_Point3ByDoubleReturnPoint3() {
+        Point3 point3 = new Point3(1, -2, 3);
+        double scalar = 3.5;
+        Point3 result = point3.multiply(scalar);
+
+        verifyPoint3(3.5, -7, 10.5, 1.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Multiply_DoubleReturnPoint3() {
+        Point3 point3 = new Point3(1, -2, 3);
+        double scalar = 3.5;
+        Point3 result = Point3.multiply(point3, scalar);
+
+        verifyPoint3(3.5, -7, 10.5, 1.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_InstanceMethod_Divide_Point3ByDoubleReturnPoint3() {
+        Point3 point3 = new Point3(1, -2, 3);
+        double scalar = 2;
+        Point3 result = point3.divide(scalar);
+
+        verifyPoint3(0.5, -1, 1.5, 1.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Divide_DoubleReturnPoint3() {
+        Point3 point3 = new Point3(1, -2, 3);
+        double scalar = 2;
+        Point3 result = Point3.divide(point3, scalar);
+
+        verifyPoint3(0.5, -1, 1.5, 1.0, result, this.EPISILON);
+    }
+
     
 }
