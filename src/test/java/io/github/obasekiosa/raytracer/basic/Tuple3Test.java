@@ -102,4 +102,22 @@ public class Tuple3Test {
 
         verifyTuple3(3.5, -7, 10.5, -14, result, this.EPISILON);
     }
+
+    @Test
+    public void test_InstanceMethod_Divide_Tuple3ByDoubleReturnTuple3() {
+        Tuple3 tuple3 = new Tuple3(1, -2, 3, -4);
+        double scalar = 2;
+        Tuple3 result = tuple3.divide(scalar);
+
+        verifyTuple3(0.5, -1, 1.5, -2, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_StaticMethod_Divide_DoubleReturnTuple3() {
+        Tuple3 tuple3 = new Tuple3(1, -2, 3, -4);
+        double scalar = 2;
+        Tuple3 result = Tuple3.divide(tuple3, scalar);
+
+        verifyTuple3(0.5, -1, 1.5, -2, result, this.EPISILON);
+    }
 }
