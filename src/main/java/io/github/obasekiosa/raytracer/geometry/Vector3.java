@@ -48,7 +48,7 @@ public class Vector3 extends Tuple3 {
     }
 
     public Point3 add(Point3 point3) {
-        throw new UnsupportedOperationException("This method has not been Implemented");
+        return new Point3(this.getX() + point3.getX(), this.getY() + point3.getY(), this.getZ() + point3.getZ());
     }
 
     public static Vector3 add(Vector3 a, Vector3 b) {
@@ -56,7 +56,7 @@ public class Vector3 extends Tuple3 {
     }
 
     public static Point3 add(Point3 point3, Vector3 vector3) {
-        throw new UnsupportedOperationException("This method has not been Implemented");
+        return new Point3(point3.getX() + vector3.getX(), point3.getY() + vector3.getY(), point3.getZ() + vector3.getZ());
     }
 
     public static Point3 add(Vector3 vector3, Point3 point3) {
