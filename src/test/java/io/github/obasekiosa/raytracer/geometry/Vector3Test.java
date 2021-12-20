@@ -111,13 +111,28 @@ public class Vector3Test {
     }
 
     @Test 
-    public void test_StaticMethod_Subtract_Vector3FromZeroVector3ReturnsVector3() {
+    public void test_StaticMethod_Subtract_NonZeroVector3FromZeroVector3ReturnVector3() {
         Vector3 zero = Vector3.zero();
         Vector3 vector3 = new Vector3(1, -2, 3);
-
         Vector3 result = Vector3.subtract(zero, vector3);
 
         verifyVector3(-1, 2, -3, 0.0, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_InstanceMethod_Negate_Vetor3ReturnVector3() {
+        Vector3 vector3 = new Vector3(1, -2, 3);
+        Vector3 result = vector3.negate();
+
+        verifyVector3(-1, 2, -3, 0.0, result, 0);
+    }
+
+    @Test
+    public void test_StaticMethod_Negate_Vetor3ReturnVector3() {
+        Vector3 vector3 = new Vector3(1, -2, 3);
+        Vector3 result = Vector3.negate(vector3);
+
+        verifyVector3(-1, 2, -3, 0.0, result, 0);
     }
     
 }

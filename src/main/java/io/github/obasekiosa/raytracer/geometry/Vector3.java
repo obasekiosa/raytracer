@@ -79,6 +79,14 @@ public class Vector3 extends Tuple3 {
         return new Vector3(0, 0, 0);
     }
 
+    public Vector3 negate() {
+        return new Vector3(-this.getX(), -this.getY(), -this.getZ());
+    }
+
+    public static Vector3 negate(Vector3 vector3) {
+        return new Vector3(-vector3.getX(), -vector3.getY(), -vector3.getZ());
+    }
+
 
     @Override
     public String toString() {
