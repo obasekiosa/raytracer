@@ -115,6 +115,28 @@ public class Point3Test {
         verifyPoint3(-2, -4, -6, 1.0, result, this.EPISILON);
     }
 
+    @Test
+    public void test_StaticMethod_Zero_ReturnPoint3AllZero() {
+        Point3 result = Point3.zero();
+
+        verifyPoint3(0, 0, 0, 1.0, result, 0);
+    }
+
+    @Test
+    public void test_InstanceMethod_Negate_ReturnPoint3() {
+        Point3 point3 = new Point3(1, -2, 3);
+        Point3 result = point3.negate();
+
+        verifyPoint3(-1, 2, -3, 1.0, result, 0);
+    }
+
+    @Test
+    public void test_StaticMethod_Negate_Point3ReturnPoint3() {
+        Point3 point3 = new Point3(1, -2, 3);
+        Point3 result = Point3.negate(point3);
+
+        verifyPoint3(-1, 2, -3, 1.0, result, 0);
+    }
 
     
 }
