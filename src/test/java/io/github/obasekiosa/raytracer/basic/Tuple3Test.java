@@ -61,7 +61,7 @@ public class Tuple3Test {
     }
 
     @Test
-    public void test_StaticMethod_Subtract_NonTuple3FromZeroTuple3ReturnTuple3() {
+    public void test_StaticMethod_Subtract_NonZeroTuple3FromZeroTuple3ReturnTuple3() {
         Tuple3 tuple3 = new Tuple3(1, -2, 3, -4);
         Tuple3 zero = Tuple3.zero();
         Tuple3 result = Tuple3.subtract(zero, tuple3);
