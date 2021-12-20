@@ -10,6 +10,15 @@ public class Tuple3 {
 
     protected double x4;
 
+    
+
+    public Tuple3(double x1, double x2, double x3, double x4) {
+        this.x1 = x1;
+        this.x2 = x2;
+        this.x3 = x3;
+        this.x4 = x4;
+    }
+
     public double getX1() {
         return x1;
     }
@@ -40,6 +49,34 @@ public class Tuple3 {
 
     public void setX4(double x4) {
         this.x4 = x4;
+    }
+
+    public Tuple3 add(Tuple3 other) {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
+    public static Tuple3 add(Tuple3 a, Tuple3 b) {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
+    public Tuple3 subtract(Tuple3 other) {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
+    public static Tuple3 subtract(Tuple3 a, Tuple3 b) {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
+    public static Tuple3 zero() {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
+    public static Tuple3 negate(Tuple3 tuple3) {
+        throw new UnsupportedOperationException("This method has not been implemented");
+    }
+
+    public Tuple3 negate() {
+        throw new UnsupportedOperationException("This method has not been implemented");
     }
 
     @Override
