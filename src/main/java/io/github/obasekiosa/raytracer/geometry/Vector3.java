@@ -84,6 +84,38 @@ public class Vector3 extends Tuple3 {
         return new Vector3(-vector3.getX(), -vector3.getY(), -vector3.getZ());
     }
 
+    public Vector3 multiply(double scalar) {
+        return Vector3.multiply(this, scalar);
+    }
+
+    public static Vector3 multiply(Vector3 vector3, double scalar) {
+        if (vector3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+        return new Vector3(scalar * vector3.x1, scalar * vector3.x2, scalar * vector3.x3);
+    }
+
+    public Vector3 divide(double scalar) {
+        return Vector3.divide(this, scalar);
+    }
+
+    public static Vector3 divide(Vector3 vector3, double scalar) {
+        if (vector3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+
+        if (scalar == 0 && (vector3.getX() == 0 || vector3.getY() == 0 || vector3.getZ() == 0)) {
+            throw new ArithmeticException("Can not divide zero by zero");
+        } else if (scalar == 0) {
+            return new Vector3(
+                    vector3.getX() < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                    vector3.getY() < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY,
+                    vector3.getZ() < 0 ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY);
+        } else {
+            return new Vector3(vector3.getX() / scalar, vector3.getY() / scalar, vector3.getZ() / scalar);
+        }
+    }
+
 
     @Override
     public String toString() {
