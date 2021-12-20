@@ -72,7 +72,7 @@ public class Tuple3 {
     }
 
     public static Tuple3 negate(Tuple3 tuple3) {
-        throw new UnsupportedOperationException("This method has not been implemented");
+        return new Tuple3(-tuple3.x1, -tuple3.x2, -tuple3.x3, -tuple3.x4);
     }
 
     public Tuple3 negate() {
