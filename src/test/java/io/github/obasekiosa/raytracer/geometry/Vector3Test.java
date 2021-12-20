@@ -119,7 +119,7 @@ public class Vector3Test {
     }
 
     @Test
-    public void test_InstanceMethod_Negate_Vetor3ReturnVector3() {
+    public void test_InstanceMethod_Negate_ReturnVector3() {
         Vector3 vector3 = new Vector3(1, -2, 3);
         Vector3 result = vector3.negate();
 
