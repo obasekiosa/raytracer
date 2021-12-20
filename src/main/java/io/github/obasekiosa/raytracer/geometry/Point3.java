@@ -57,11 +57,11 @@ public class Point3 extends Tuple3 {
     }
 
     public static Point3 add(Point3 point3, Vector3 vector3) {
-        return new Point3(point3.getX() + vector3.getX(), point3.getY() + vector3.getY(), point3.getZ() + vector3.getZ())
+        return new Point3(point3.getX() + vector3.getX(), point3.getY() + vector3.getY(), point3.getZ() + vector3.getZ());
     }
 
     public static Point3 add(Vector3 vector3, Point3 point3) {
-        return new Point3(vector3.getX() + point3.getX(), vector3.getY() + point3.getY(), vector3.getZ() + point3.getZ())
+        return new Point3(vector3.getX() + point3.getX(), vector3.getY() + point3.getY(), vector3.getZ() + point3.getZ());
     }
 
     public Vector3 subtract(Point3 other) {
