@@ -146,6 +146,9 @@ public class Vector3 extends Tuple3 {
     }
 
     public static double dotProduct(Vector3 a, Vector3 b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
         return a.getX() * b.getX()
                 + a.getY() * b.getY() 
                 + a.getZ() * b.getZ() 
@@ -153,6 +156,9 @@ public class Vector3 extends Tuple3 {
     }
 
     public double dotProduct(Vector3 vector3) {
+        if (vector3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
         return Vector3.dotProduct(this, vector3);
     }
 
