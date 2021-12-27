@@ -163,11 +163,20 @@ public class Vector3 extends Tuple3 {
     }
 
     public static Vector3 crossProduct(Vector3 a, Vector3 b) {
-        throw new UnsupportedOperationException("Method has not been implemented yet");
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+
+        return new Vector3(a.getY() * b.getZ() - a.getZ() * b.getY(),
+                            a.getZ() * b.getX() - a.getX() * b.getZ(),
+                            a.getX() * b.getY() - a.getY() * b.getX());
     }
 
     public Vector3 crossProduct(Vector3 vector3) {
-        throw new UnsupportedOperationException("Method has not been implemented yet");
+        if (vector3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+        return Vector3.crossProduct(this, vector3);
     }
 
 
