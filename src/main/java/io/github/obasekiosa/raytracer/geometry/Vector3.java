@@ -145,6 +145,14 @@ public class Vector3 extends Tuple3 {
         return Vector3.normalize(this);
     }
 
+    public static double dotProduct(Vector3 a, Vector3 b) {
+        throw new UnsupportedOperationException("Method has not been implemented");
+    }
+
+    public double dotProduct(Vector3 vector3) {
+        throw new UnsupportedOperationException("Method has not been implemented");
+    }
+
 
     @Override
     public String toString() {
