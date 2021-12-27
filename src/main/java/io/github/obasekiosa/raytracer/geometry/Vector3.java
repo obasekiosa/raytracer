@@ -117,6 +117,19 @@ public class Vector3 extends Tuple3 {
     }
 
 
+    public static double magnitude(Vector3 vector3) {
+        if (vector3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+
+        return Math.sqrt(vector3.getX() * vector3.getX() + vector3.getY() * vector3.getY() + vector3.getZ() * vector3.getZ() + vector3.getW() * vector3.getW());
+    }
+
+    public double magnitude() {
+        return Vector3.magnitude(this);
+    }
+
+
     @Override
     public String toString() {
         return "Vector3 ( x=" + getX() + ", y=" + getY() + ", z=" + getZ() + ")";
