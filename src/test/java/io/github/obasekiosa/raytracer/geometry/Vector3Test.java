@@ -324,4 +324,49 @@ public class Vector3Test {
             }
         }
     }
+
+
+    @Test
+    public void test_StaticMethod_CrossProduct_TwoVector3ReturnVector3() {
+        double[][][] values = {
+            {{1, 2, 3}, {2, 3, 4}, {-1, 2, -1}} // a, b, a x b in that order
+        };
+
+        for (double[][] testCase : values) {
+            double[] aValues = testCase[0];
+            double[] bValues = testCase[1];
+            double[] axbValues = testCase[2];
+
+            Vector3 a = new Vector3(aValues[0], aValues[1], aValues[2]);
+            Vector3 b = new Vector3(bValues[0], bValues[1], bValues[2]);
+
+            Vector3 result = Vector3.crossProduct(a, b);
+            verifyVector3(axbValues[0], axbValues[1], axbValues[2], 0.0, result, this.EPISILON);
+
+            Vector3 reverse = Vector3.crossProduct(b, a);
+            verifyVector3(-axbValues[0], -axbValues[1], -axbValues[2], 0.0, reverse, this.EPISILON);
+        }
+    }
+
+    @Test
+    public void test_InstanceMethod_CrossProduct_Vector3ReturnVector3() {
+        double[][][] values = {
+            {{1, 2, 3}, {2, 3, 4}, {-1, 2, -1}} // a, b, a x b in that order
+        };
+
+        for (double[][] testCase : values) {
+            double[] aValues = testCase[0];
+            double[] bValues = testCase[1];
+            double[] axbValues = testCase[2];
+
+            Vector3 a = new Vector3(aValues[0], aValues[1], aValues[2]);
+            Vector3 b = new Vector3(bValues[0], bValues[1], bValues[2]);
+
+            Vector3 result = a.crossProduct(b);
+            verifyVector3(axbValues[0], axbValues[1], axbValues[2], 0.0, result, this.EPISILON);
+
+            Vector3 reverse = b.crossProduct(a);
+            verifyVector3(-axbValues[0], -axbValues[1], -axbValues[2], 0.0, reverse, this.EPISILON);
+        }
+    }
 }
