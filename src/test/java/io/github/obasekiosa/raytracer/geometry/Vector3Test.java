@@ -206,4 +206,79 @@ public class Vector3Test {
             assertEquals("Magnitude of " + vector3 + " is", testCase[3], result, this.EPISILON);
         }
     }
+
+    @Test
+    public void test_StaticMethod_Normalize_Vector3RetunVector3() {
+        double[][][] values = {
+            {{4, 0, 0}, {1, 0, 0}},
+            {{1, 2, 3}, {0.26726, 0.53452, 0.80178}}
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            double[] expected = testCase[1];
+            Vector3 vector3 = new Vector3(test[0], test[1], test[2]);
+            Vector3 result = Vector3.normalize(vector3);
+
+            verifyVector3(expected[0], expected[1], expected[2], 0, result, this.EPISILON);
+        }
+    }
+
+
+    @Test
+    public void test_InstanceMethod_Normalize_Vector3RetunVector3() {
+        double[][][] values = {
+                { { 4, 0, 0 }, { 1, 0, 0 } },
+                { { 1, 2, 3 }, { 0.26726, 0.53452, 0.80178 } }
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            double[] expected = testCase[1];
+            Vector3 vector3 = new Vector3(test[0], test[1], test[2]);
+            Vector3 result = vector3.normalize(vector3);
+
+            verifyVector3(expected[0], expected[1], expected[2], 0, result, this.EPISILON);
+        }
+    }
+
+
+
+    @Test
+    public void test_StaticMethod_Normalize_ResultMagnitudeIsOne() {
+        double[][][] values = {
+                { { 4, 0, 0 }, { 1, 0, 0 } },
+                { { 1, 2, 3 }, { 0.26726, 0.53452, 0.80178 } }
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            double[] expected = testCase[1];
+            Vector3 vector3 = new Vector3(test[0], test[1], test[2]);
+            Vector3 result = Vector3.normalize(vector3);
+
+            verifyVector3(expected[0], expected[1], expected[2], 0, result, this.EPISILON);
+
+            assertEquals("Magnitude of normalized " + vector3 + " is", 1, result.magnitude(), this.EPISILON);
+        }
+    }
+
+    @Test
+    public void test_InstanceMethod_Normalize_ResultMagnitudeIsOne() {
+        double[][][] values = {
+                { { 4, 0, 0 }, { 1, 0, 0 } },
+                { { 1, 2, 3 }, { 0.26726, 0.53452, 0.80178 } }
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            double[] expected = testCase[1];
+            Vector3 vector3 = new Vector3(test[0], test[1], test[2]);
+            Vector3 result = vector3.normalize(vector3);
+
+            verifyVector3(expected[0], expected[1], expected[2], 0, result, this.EPISILON);
+
+            assertEquals("Magnitude of normalized " + vector3 + " is", 1, result.magnitude(), this.EPISILON);
+        }
+    }
 }
