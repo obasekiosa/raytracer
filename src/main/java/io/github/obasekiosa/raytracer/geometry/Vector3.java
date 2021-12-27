@@ -130,11 +130,11 @@ public class Vector3 extends Tuple3 {
     }
 
     public static Vector3 normalize(Vector3 vector3) {
-        throw new UnsupportedOperationException("Not yet Implemented");
+        return vector3.divide(vector3.magnitude());
     }
 
     public Vector3 normalize() {
-        throw new UnsupportedOperationException("Not yet Implemented");
+        return Vector3.normalize(this);
     }
 
 
