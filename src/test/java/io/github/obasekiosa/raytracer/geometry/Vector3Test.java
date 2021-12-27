@@ -281,4 +281,47 @@ public class Vector3Test {
             assertEquals("Magnitude of normalized " + vector3 + " is", 1, result.magnitude(), this.EPISILON);
         }
     }
+
+    @Test
+    public void test_StaticMethod_DotProduct_TwoVector3ReturnDouble() {
+        double[][][] values = {
+                { { 1, 0, 0, 1 }, { 1, 0, 0, 1 }, { 0, 1, 0, 0 } } // value, test the first with itself and the others,
+                                                                   // the forth entry is the expected result
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            Vector3 first = new Vector3(test[0], test[1], test[2]);
+            for (double[] expected : testCase) {
+                Vector3 second = new Vector3(expected[0], expected[1], expected[2]);
+                double result = Vector3.dotProduct(first, second);
+                double reverse = Vector3.dotProduct(second, first);
+
+                assertEquals(first + " dot " + second + " is ", expected[3], result, this.EPISILON);
+
+                assertEquals(second + " dot " + first + " is ", expected[3], reverse, this.EPISILON);
+            }
+        }
+    }
+
+    @Test
+    public void test_InstanceMethod_DotProduct_Vector3ReturnDouble() {
+        double[][][] values = {
+            {{1, 0, 0, 1}, {1, 0, 0, 1}, {0, 1, 0, 0}} // value, test the first with itself and the others, the forth entry is the expected result
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            Vector3 first = new Vector3(test[0], test[1], test[2]);
+            for(double[] expected : testCase) {
+                Vector3 second = new Vector3(expected[0], expected[1], expected[2]);
+                double result = first.dotProduct(second);
+                double reverse = second.dotProduct(first);
+                
+                assertEquals(first + " dot " + second + " is ", expected[3], result, this.EPISILON);
+                
+                assertEquals(second + " dot " + first + " is ", expected[3], reverse, this.EPISILON);
+            }
+        }
+    }
 }
