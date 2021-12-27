@@ -129,6 +129,14 @@ public class Vector3 extends Tuple3 {
         return Vector3.magnitude(this);
     }
 
+    public static Vector3 normalize(Vector3 vector3) {
+        throw new UnsupportedOperationException("Not yet Implemented");
+    }
+
+    public Vector3 normalize() {
+        throw new UnsupportedOperationException("Not yet Implemented");
+    }
+
 
     @Override
     public String toString() {
