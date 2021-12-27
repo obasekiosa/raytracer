@@ -146,11 +146,11 @@ public class Vector3 extends Tuple3 {
     }
 
     public static double dotProduct(Vector3 a, Vector3 b) {
-        throw new UnsupportedOperationException("Method has not been implemented");
+        return a.getX() * b.getX() + a.getY() * b.getY() + a.getZ() * b.getZ() + a.getW() * b.getW();
     }
 
     public double dotProduct(Vector3 vector3) {
-        throw new UnsupportedOperationException("Method has not been implemented");
+        return Vector3.dotProduct(this, vector3);
     }
 
 
