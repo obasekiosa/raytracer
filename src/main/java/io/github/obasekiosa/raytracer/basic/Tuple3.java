@@ -189,7 +189,7 @@ public class Tuple3 {
 
     @Override
     public String toString() {
-        return "Tuple3 (x1=" + x1 + ", x2=" + x2 + ", x3=" + x3 + ", x4=" + x4 + ")";
+        return "Tuple3 ( x1=" + x1 + ", x2=" + x2 + ", x3=" + x3 + ", x4=" + x4 + " )";
     }
 
     
