@@ -122,4 +122,59 @@ public class Tuple3Test {
 
         verifyTuple3(0.5, -1, 1.5, -2, result, this.EPISILON);
     }
+
+    @Test
+    public void test_StaticMethod_Magnitude_Tuple3ReturnDouble() {
+        Tuple3 tuple3 = new Tuple3(1, 0, 0, 0);
+        double result = Tuple3.magnitude(tuple3);
+
+        assertEquals("Magnitude of " + tuple3 + " is", 1, result, this.EPISILON);
+    }
+
+    @Test
+    public void test_InstanceMethod_Magnitude_ReturnDouble() {
+        Tuple3 tuple3 = new Tuple3(1, 0, 0, 0);
+        double result = tuple3.magnitude();
+
+        assertEquals("Magnitude of " + tuple3 + " is", 1, result, this.EPISILON);
+    }
+
+
+    
+
+    @Test
+    public void test_InstanceMethod_Normalize_Tuple3RetunTuple3() {
+        double[][][] values = {
+                { { 4, 0, 0, 0 }, { 1, 0, 0, 0 } },
+                { { 1, 2, 3, 0 }, { 0.26726, 0.53452, 0.80178, 0 } }
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            double[] expected = testCase[1];
+            Tuple3 tuple3 = new Tuple3(test[0], test[1], test[2], test[3]);
+            Tuple3 result = tuple3.normalize();
+
+            verifyTuple3(expected[0], expected[1], expected[2], expected[3], result, this.EPISILON);
+        }
+    }
+
+    @Test
+    public void test_InstanceMethod_Normalize_ResultMagnitudeIsOne() {
+        double[][][] values = {
+                { { 4, 0, 0, 0 }, { 1, 0, 0, 0 } },
+                { { 1, 2, 3, 0 }, { 0.26726, 0.53452, 0.80178, 0 } }
+        };
+
+        for (double[][] testCase : values) {
+            double[] test = testCase[0];
+            double[] expected = testCase[1];
+            Tuple3 tuple3 = new Tuple3(test[0], test[1], test[2], test[3]);
+            Tuple3 result = tuple3.normalize();
+
+            verifyTuple3(expected[0], expected[1], expected[2], expected[3], result, this.EPISILON);
+
+            assertEquals("Magnitude of normalized " + tuple3 + " is", 1, result.magnitude(), this.EPISILON);
+        }
+    }
 }

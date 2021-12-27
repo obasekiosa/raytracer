@@ -201,7 +201,7 @@ public class Vector3Test {
 
         for (double[] testCase : values) {
             Vector3 vector3 = new Vector3(testCase[0], testCase[1], testCase[2]);
-            double result = vector3.magnitude(vector3);
+            double result = vector3.magnitude();
 
             assertEquals("Magnitude of " + vector3 + " is", testCase[3], result, this.EPISILON);
         }
@@ -236,7 +236,7 @@ public class Vector3Test {
             double[] test = testCase[0];
             double[] expected = testCase[1];
             Vector3 vector3 = new Vector3(test[0], test[1], test[2]);
-            Vector3 result = vector3.normalize(vector3);
+            Vector3 result = vector3.normalize();
 
             verifyVector3(expected[0], expected[1], expected[2], 0, result, this.EPISILON);
         }

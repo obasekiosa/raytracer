@@ -123,6 +123,32 @@ public class Tuple3 {
         }
     }
 
+    public static double magnitude(Tuple3 tuple3) {
+        if (tuple3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+
+        return Math.sqrt(tuple3.x1 * tuple3.x1 + tuple3.x2 * tuple3.x2 + tuple3.x3 * tuple3.x3 + tuple3.x4 * tuple3.x4);
+    }
+
+    public double magnitude() {
+        return Tuple3.magnitude(this);
+    }
+
+    public static Tuple3 normalize(Tuple3 tuple3) {
+        if (tuple3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+        double magnitude = tuple3.magnitude();
+        if (magnitude == 0) throw new ArithmeticException("Magnitude of tuple is zero");
+
+        return tuple3.divide(magnitude);
+    }
+
+    public Tuple3 normalize() {
+        return Tuple3.normalize(this);
+    }
+
 
 
     @Override

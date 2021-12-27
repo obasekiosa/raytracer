@@ -130,7 +130,15 @@ public class Vector3 extends Tuple3 {
     }
 
     public static Vector3 normalize(Vector3 vector3) {
-        return vector3.divide(vector3.magnitude());
+        if (vector3 == null) {
+            throw new IllegalArgumentException("Method arguments can not be null");
+        }
+        
+        double magnitude = vector3.magnitude();
+        if (magnitude == 0)
+            throw new ArithmeticException("Magnitude of vector is zero");
+
+        return vector3.divide(magnitude);
     }
 
     public Vector3 normalize() {
