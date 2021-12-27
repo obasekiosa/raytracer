@@ -169,4 +169,41 @@ public class Vector3Test {
 
         verifyVector3(0.5, -1, 1.5, 0.0, result, this.EPISILON);
     }
+
+    @Test
+    public void test_StaticMethod_Magnitude_Vector3ReturnDouble() {
+
+        double[][] values = {
+            {1, 0 , 0, 1},
+            {0, 1 , 0, 1},
+            {0, 0 , 1, 1},
+            {1, 2 , 3, 3.741657386773941},
+            {-1, -2 , -3, 3.741657386773941},
+        };
+
+        for (double[] testCase : values) {
+            Vector3 vector3 = new Vector3(testCase[0], testCase[1], testCase[2]);
+            double result = Vector3.magnitude(vector3);
+
+            assertEquals("Magnitude of " + vector3 + " is", testCase[3], result, this.EPISILON);
+        }
+    }
+
+    @Test
+    public void test_InstanceMethod_Magnitude_ReturnDouble() {
+        double[][] values = {
+                { 1, 0, 0, 1 },
+                { 0, 1, 0, 1 },
+                { 0, 0, 1, 1 },
+                { 1, 2, 3, 3.741657386773941 },
+                { -1, -2, -3, 3.741657386773941 },
+        };
+
+        for (double[] testCase : values) {
+            Vector3 vector3 = new Vector3(testCase[0], testCase[1], testCase[2]);
+            double result = vector3.magnitude(vector3);
+
+            assertEquals("Magnitude of " + vector3 + " is", testCase[3], result, this.EPISILON);
+        }
+    }
 }

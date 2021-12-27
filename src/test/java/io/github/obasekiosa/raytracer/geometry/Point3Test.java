@@ -174,5 +174,4 @@ public class Point3Test {
         verifyPoint3(0.5, -1, 1.5, 1.0, result, this.EPISILON);
     }
 
-    
 }
