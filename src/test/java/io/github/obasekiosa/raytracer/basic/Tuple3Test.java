@@ -1,12 +1,10 @@
 package io.github.obasekiosa.raytracer.basic;
 
+import static io.github.obasekiosa.raytracer.geometry.GeometryTestUtils.verifyTuple3;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Test;
-
-
-import static io.github.obasekiosa.raytracer.TestUtils.verifyTuple3;;
+import org.junit.Test;;
 
 public class Tuple3Test {
     public double EPISILON;

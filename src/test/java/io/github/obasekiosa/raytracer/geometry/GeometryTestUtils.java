@@ -1,14 +1,12 @@
-package io.github.obasekiosa.raytracer;
+package io.github.obasekiosa.raytracer.geometry;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import io.github.obasekiosa.raytracer.basic.Tuple3;
-import io.github.obasekiosa.raytracer.geometry.Point3;
-import io.github.obasekiosa.raytracer.geometry.Vector3;
 
-public abstract class TestUtils {
+public abstract class GeometryTestUtils {
     
     /**
      * 

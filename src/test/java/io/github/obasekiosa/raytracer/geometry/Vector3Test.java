@@ -1,7 +1,7 @@
 package io.github.obasekiosa.raytracer.geometry;
 
-import static io.github.obasekiosa.raytracer.TestUtils.verifyPoint3;
-import static io.github.obasekiosa.raytracer.TestUtils.verifyVector3;
+import static io.github.obasekiosa.raytracer.geometry.GeometryTestUtils.verifyPoint3;
+import static io.github.obasekiosa.raytracer.geometry.GeometryTestUtils.verifyVector3;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
