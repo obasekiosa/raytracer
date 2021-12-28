@@ -45,4 +45,50 @@ public class Color extends Tuple3 {
         this.x4 = a;
     }
     
+    public static Color add(Color a, Color b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Arguments can not be null");
+        }
+        return new Color(a.getRed() + b.getRed(), a.getGreen() + b.getGreen(), a.getBlue() + b.getBlue());
+    }
+
+    public Color add(Color color) {
+        return Color.add(this, color);
+    
+    }
+    
+    public static Color subtract(Color a, Color b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Arguments can not be null");
+        }
+        return new Color(a.getRed() - b.getRed(), a.getGreen() - b.getGreen(), a.getBlue() - b.getBlue());
+    }
+
+    public Color subtract(Color color) {
+        return Color.subtract(this, color);
+    }
+
+    public static Color multiply(Color a, Color b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Arguments can not be null");
+        }
+        return new Color(a.getRed() * b.getRed(), a.getGreen() * b.getGreen(), a.getBlue() * b.getBlue());
+    }
+
+    public Color multiply(Color color) {
+        return Color.multiply(this, color);
+    }
+
+    public static Color multiply(Color color, double scalar) {
+        if (color == null) {
+            throw new IllegalArgumentException("Arguments can not be null");
+        }
+        return new Color(color.getRed() * scalar, color.getGreen() * scalar, color.getBlue() * scalar);
+    }
+
+    public Color multiply(double scalar) {
+        return Color.multiply(this, scalar);
+    }
+
+
 }
