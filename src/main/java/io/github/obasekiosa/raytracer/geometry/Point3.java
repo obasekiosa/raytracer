@@ -10,35 +10,35 @@ public class Point3 extends Tuple3 {
     }
 
     public void setX(double x) {
-        this.x1 = x;
+        this.setX1(x);;
     }
 
     public double getX() {
-       return this.x1;
+       return this.getX1();
     }
     
     public void setY(double y) {
-        this.x2 = y;
+        this.setX2(y);;
     }
 
     public double getY() {
-        return this.x2;
+        return this.getX2();
     }
 
     public void setZ(double z) {
-        this.x3 = z;
+        this.setX3(z);;
     }
 
     public double getZ() {
-        return this.x3;
+        return this.getX3();
     }
 
     public void setW(double w) {
-        this.x4 = w;
+        this.setX4(w);
     }
 
     public double getW() {
-        return this.x4;
+        return this.getX4();
     }
 
     public Point3 add(Point3 other) {
@@ -98,7 +98,7 @@ public class Point3 extends Tuple3 {
         if (point3 == null) {
             throw new IllegalArgumentException("Method arguments can not be null");
         }
-        return new Point3(scalar * point3.x1, scalar * point3.x2, scalar * point3.x3);
+        return new Point3(scalar * point3.getX(), scalar * point3.getY(), scalar * point3.getZ());
     }
 
     public Point3 divide(double scalar) {

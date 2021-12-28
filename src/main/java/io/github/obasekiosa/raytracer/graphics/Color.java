@@ -14,35 +14,35 @@ public class Color extends Tuple3 {
     }
 
     public double getRed() {
-        return this.x1;
+        return this.getX1();
     }
 
     public void setRed(double r) {
-        this.x1 = r;
+        this.setX1(r);
     }
     
     public double getGreen() {
-        return this.x2;
+        return this.getX2();
     }
 
     public void setGreen(double g) {
-        this.x2 = g;
+        this.setX2(g);
     }
     
     public double getBlue() {
-        return this.x3;
+        return this.getX3();
     }
 
     public void setBlue(double b) {
-        this.x3 = b;
+        this.setX3(b);
     }
     
     public double getAlpha() {
-        return this.x4;
+        return this.getX4();
     }
 
     public void setAlpha(double a) {
-        this.x4 = a;
+        this.setX4(a);
     }
     
     public static Color add(Color a, Color b) {
@@ -89,6 +89,26 @@ public class Color extends Tuple3 {
     public Color multiply(double scalar) {
         return Color.multiply(this, scalar);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Color other = (Color) obj;
+
+        if (Math.abs(this.getRed() - other.getRed()) > this.EPSILON) return false;
+        if (Math.abs(this.getGreen() - other.getGreen()) > this.EPSILON) return false;
+        if (Math.abs(this.getBlue() - other.getBlue()) > this.EPSILON) return false;
+        if (Math.abs(this.getAlpha() - other.getAlpha()) > this.EPSILON) return false;
+
+        return true;
+    }
+
+    
 
 
 }

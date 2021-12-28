@@ -2,13 +2,15 @@ package io.github.obasekiosa.raytracer.basic;
 
 public class Tuple3 {
 
-    protected double x1;
+    protected final double EPSILON = 1e-4;
 
-    protected double x2;
+    private double x1;
 
-    protected double x3;
+    private double x2;
 
-    protected double x4;
+    private double x3;
+
+    private double x4;
 
     
 
