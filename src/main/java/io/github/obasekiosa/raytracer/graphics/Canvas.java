@@ -7,6 +7,8 @@ public class Canvas {
     private int width;
     private int height;
 
+    private final Color[][] canvas;
+
     public Canvas(int width, int height) {
         throw new UnImplementedMethodException();
     }
@@ -32,6 +34,10 @@ public class Canvas {
     }
 
     public void writePixel(int x, int y, Color c) {
+        throw new UnImplementedMethodException();
+    }
+
+    public Color[][] getPixels() {
         throw new UnImplementedMethodException();
     }
     
