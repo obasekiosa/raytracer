@@ -101,7 +101,7 @@ public class CanvasTest {
 
     @Test
     public void test_InstanceMethod_ToPPM_SplitLongLinesInPPMFile() {
-        Canvas canvas = new Canvas(5, 3);
+        Canvas canvas = new Canvas(10, 2);
         
         for (int i = 0; i < canvas.getHeight(); i++) {
             for (int j = 0; j < canvas.getWidth(); j++) {
