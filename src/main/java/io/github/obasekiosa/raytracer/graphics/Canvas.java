@@ -64,14 +64,14 @@ public class Canvas {
 
 
     public void toPPM() {
-        toPPM(null);
+        toPPM("output");
     }
 
 
     public void toPPM(String name) {
 
         if (name == null) {
-            name = "output";
+            throw new IllegalArgumentException("name can not be null");
         }
         
         File file = null;
