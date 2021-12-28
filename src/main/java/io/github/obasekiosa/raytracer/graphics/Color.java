@@ -108,6 +108,11 @@ public class Color extends Tuple3 {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Color ( r=" + getRed() + ", g=" + getGreen() + ", b=" + getBlue() + ", a=" + getAlpha() + " )";
+    }
+
     
 
 
