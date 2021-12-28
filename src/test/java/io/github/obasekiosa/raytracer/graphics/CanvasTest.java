@@ -28,7 +28,7 @@ public class CanvasTest {
 
         canvas.writePixel(2, 3, red);
         boolean result =  red.equals(canvas.pixelAt(2, 3));
-        assertEquals("Pixel was written onto the canvas", result);
+        assertTrue("Pixel was written onto the canvas", result);
     }
 
 
