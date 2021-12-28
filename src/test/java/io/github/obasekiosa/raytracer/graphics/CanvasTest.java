@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -60,11 +61,7 @@ public class CanvasTest {
         assertEquals("Second line matches", "5 3", ppmFile.get(1));
         assertEquals("Third line matches", "255", ppmFile.get(2));
 
-        try {
-            Files.delete(Paths.get(name));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        cleanFile(name + ".ppm");
         
     }
 
@@ -98,12 +95,76 @@ public class CanvasTest {
         assertEquals("Fifth line matches", "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0", ppmFile.get(4));
         assertEquals("Sixth line matches", "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255", ppmFile.get(5));
 
+        cleanFile(name + ".ppm");
+        
+    }
+
+    @Test
+    public void test_InstanceMethod_ToPPM_SplitLongLinesInPPMFile() {
+        Canvas canvas = new Canvas(5, 3);
+        
+        for (int i = 0; i < canvas.getHeight(); i++) {
+            for (int j = 0; j < canvas.getWidth(); j++) {
+                canvas.writePixel(j, i, new Color(1, 0.8, 0.6));
+            }
+        }
+
+        String name = "ppmfile";
+        canvas.toPPM(name);
+
+        List<String> ppmFile = null;
+        try {
+            ppmFile = Files.readAllLines(Paths.get(name + ".ppm"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        assertNotNull("Read file", ppmFile);
+
+        assertTrue("Contains 7 lines", ppmFile.size() == 7);
+
+        assertEquals("Fourth line matches", "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204", ppmFile.get(3));
+        assertEquals("Fifth line matches", "153 255 204 153 255 204 153 255 204 153 255 204 153", ppmFile.get(4));
+        assertEquals("Sixth line matches", "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204", ppmFile.get(5));
+        assertEquals("Seventh line matches", "153 255 204 153 255 204 153 255 204 153 255 204 153", ppmFile.get(6));
+
+        
+        cleanFile(name + ".ppm");
+        
+    }
+
+    @Test
+    public void test_InstanceMethod_ToPPM_EndsWithNewLineCharacter() {
+        Canvas canvas = new Canvas(5, 3);
+
+        String name = "ppmfile";
+        canvas.toPPM(name);
+
+        try {
+            RandomAccessFile file = new RandomAccessFile(Paths.get("name"+".ppm").toFile(), "r");
+            long fileLength = file.length() - 1;
+            assertTrue("File is not empty", fileLength - 1 >= 0);
+
+            file.seek(fileLength);
+
+            byte lastByte = file.readByte();
+            file.close();
+
+            assertTrue("Last character in file is new line", lastByte == 0xA || lastByte == 0xD );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        cleanFile(name + ".ppm");
+        
+    }
+
+    private void cleanFile(String name) {
         try {
             Files.delete(Paths.get(name));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
     }
 
     
