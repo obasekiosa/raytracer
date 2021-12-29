@@ -44,12 +44,12 @@ public class Canvas {
         return new Color(pixel.getRed(), pixel.getGreen(), pixel.getBlue(), pixel.getAlpha());
     }
 
-    public void writePixel(int x, int y, Color c) {
+    public void writePixel(int x, int y, Color color) {
         if (x < 0 || x >= this.canvas[0].length || y < 0 || y >= this.canvas.length) {
             throw new IllegalArgumentException("x and y must be between the boundries of the canvas");
         }
 
-        this.canvas[y][x] = c;
+        this.canvas[y][x] = color;
     }
 
     public Color[][] getPixels() {
