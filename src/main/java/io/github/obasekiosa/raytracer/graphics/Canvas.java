@@ -73,6 +73,10 @@ public class Canvas {
         if (name == null) {
             throw new IllegalArgumentException("name can not be null");
         }
+
+        if (name.trim().isEmpty()) {
+            throw new IllegalArgumentException("name can not be empty string");
+        }
         
         File file = null;
 
