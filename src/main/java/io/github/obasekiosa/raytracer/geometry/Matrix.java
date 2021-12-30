@@ -15,6 +15,10 @@ public class Matrix {
         throw new UnImplementedMethodException();
     }
 
+    public Matrix(int size) {
+        throw new UnImplementedMethodException();
+    }
+
     public int getRowCount() {
         return rows;
     }
