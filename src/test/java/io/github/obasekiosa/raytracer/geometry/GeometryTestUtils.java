@@ -105,8 +105,8 @@ public abstract class GeometryTestUtils {
         assertEquals("Create a matrix of correct row size", expectedRows, matrix.getRowCount());
         assertEquals("Create a matrix of correct col size", expectedColumns, matrix.getColumnCount());
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < values.length; i++) {
+            for (int j = 0; j < values[0].length; j++) {
                 assertEquals("Matrix has correct entry", values[i][j], matrix.getEntry(i, j), delta);
             }
         }
