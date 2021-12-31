@@ -95,7 +95,6 @@ public class Matrix {
         throw new UnImplementedMethodException();
     }
     
-
     public static Matrix invert(Matrix matrix) {
         throw new UnImplementedMethodException();
     }
