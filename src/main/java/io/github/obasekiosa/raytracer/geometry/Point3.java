@@ -1,6 +1,7 @@
 package io.github.obasekiosa.raytracer.geometry;
 
 import io.github.obasekiosa.raytracer.basic.Tuple3;
+import io.github.obasekiosa.raytracer.exceptions.UnImplementedMethodException;
 
 public class Point3 extends Tuple3 {
 
@@ -121,6 +122,10 @@ public class Point3 extends Tuple3 {
         } else {
             return new Point3(point3.getX() / scalar, point3.getY() / scalar, point3.getZ() / scalar);
         }
+    }
+
+    public static Point3 from(Tuple3 tuple3) {
+        throw new UnImplementedMethodException();
     }
 
     @Override

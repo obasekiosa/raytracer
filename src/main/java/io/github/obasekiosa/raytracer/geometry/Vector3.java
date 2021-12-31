@@ -1,6 +1,7 @@
 package io.github.obasekiosa.raytracer.geometry;
 
 import io.github.obasekiosa.raytracer.basic.Tuple3;
+import io.github.obasekiosa.raytracer.exceptions.UnImplementedMethodException;
 
 public class Vector3 extends Tuple3 {
 
@@ -177,6 +178,10 @@ public class Vector3 extends Tuple3 {
             throw new IllegalArgumentException("Method arguments can not be null");
         }
         return Vector3.crossProduct(this, vector3);
+    }
+
+    public static Vector3 from(Tuple3 tuple3) {
+        throw new UnImplementedMethodException();
     }
 
 
