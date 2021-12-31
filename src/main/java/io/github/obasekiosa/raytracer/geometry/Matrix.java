@@ -27,7 +27,7 @@ public class Matrix {
         return cols;
     }
 
-    public void setEntry(int row, int column) {
+    public void setEntry(int row, int column, double value) {
         throw new UnImplementedMethodException();
     }
 
