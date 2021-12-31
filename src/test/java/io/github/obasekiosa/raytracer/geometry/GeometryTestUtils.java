@@ -85,4 +85,30 @@ public abstract class GeometryTestUtils {
         assertEquals("Result X4 value is correct", expectedX4, tuple3.getX4(), delta);
 
     }
+
+    /**
+     * 
+     * @param values
+     * @param expectedRows
+     * @param expectedColumns
+     * @param matrix
+     * @param delta
+     */
+    public static void verifyMatrix(
+            double[][] values,
+            int expectedRows,
+            int expectedColumns,
+            Matrix matrix,
+            double delta
+            ) {
+
+        assertEquals("Create a matrix of correct row size", expectedRows, matrix.getRowCount());
+        assertEquals("Create a matrix of correct col size", expectedColumns, matrix.getColumnCount());
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                assertEquals("Matrix has correct entry", values[i][j], matrix.getEntry(i, j), delta);
+            }
+        }
+    }
 }
