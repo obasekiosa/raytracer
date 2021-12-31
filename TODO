@@ -3,6 +3,7 @@
 // test getters and setters
 // test constructors
 Point3 Todo: 
+    // Test from static methods
     // Add tests to ensure objects remain thesame after operations are performed
     // objects are different after operation
     // Add returns instance of Vector3 (Separate test)
@@ -10,6 +11,7 @@ Point3 Todo:
     // Add null object passed as input should throw exceptions tests
 
 Vector3 Todo: 
+    // Test from static methods
     // Add tests to ensure objects remain thesame after operations are performed
     // objects are different after operation
     // Add returns instance of Vector3 (Separate test)
