@@ -99,7 +99,7 @@ public class Matrix {
         throw new UnImplementedMethodException();
     }
 
-    public Matrix invert() {
+    public Matrix inverse() {
         throw new UnImplementedMethodException();
     }
 
