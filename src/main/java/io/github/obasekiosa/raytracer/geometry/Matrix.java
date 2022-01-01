@@ -139,7 +139,7 @@ public class Matrix {
         throw new UnImplementedMethodException();
     }
 
-    public boolean invertible() {
+    public boolean isInvertible() {
         throw new UnImplementedMethodException();
     }
 
