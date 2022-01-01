@@ -143,6 +143,10 @@ public class Matrix {
         throw new UnImplementedMethodException();
     }
 
+    public static Matrix from(double[][] values) {
+        throw new UnImplementedMethodException();
+    }
+
 
 
     
