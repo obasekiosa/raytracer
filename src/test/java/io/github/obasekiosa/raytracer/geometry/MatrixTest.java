@@ -657,7 +657,8 @@ public class MatrixTest {
         
     }
 
-    @Test void test_InstanceMethod_Inverse_ShouldReverseProductByMultiplicaton() {
+    @Test
+    public void test_InstanceMethod_Inverse_ShouldReverseProductByMultiplicaton() {
         double[][] valuesA = {
             {3, -9, 7, 3},
             {3, -8, 2, -9},
