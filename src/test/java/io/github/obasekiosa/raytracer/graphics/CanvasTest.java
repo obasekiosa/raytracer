@@ -141,7 +141,7 @@ public class CanvasTest {
         canvas.toPPM(name);
 
         try {
-            RandomAccessFile file = new RandomAccessFile(Paths.get("name"+".ppm").toFile(), "r");
+            RandomAccessFile file = new RandomAccessFile(Paths.get(name+".ppm").toFile(), "r");
             long fileLength = file.length() - 1;
             assertTrue("File is not empty", fileLength - 1 >= 0);
 
