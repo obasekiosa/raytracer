@@ -106,7 +106,7 @@ public class MatrixTest {
             }
         }
 
-        verifyMatrix(values, 2, 2, matrix, this.EPISILON);
+        verifyMatrix(values, 3, 3, matrix, this.EPISILON);
 
     }
     
