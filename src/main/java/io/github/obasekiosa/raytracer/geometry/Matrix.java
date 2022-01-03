@@ -155,7 +155,23 @@ public class Matrix {
     }
 
     public static Matrix from(double[][] values) {
-        throw new UnImplementedMethodException();
+        if (values.length == 0) throw new IllegalArgumentException("rows can not be zero");
+        
+        int max = 0;
+        for (int i = 0; i < values.length; i++) {
+            if (values[i].length == 0) throw new IllegalArgumentException("column can not be zero");
+            if (max < values[i].length) max = values[i].length;
+        }
+
+        Matrix matrix = new Matrix(values.length, max);
+
+        for (int i = 0; i < values.length; i++) {
+            for (int j = 0; j < values[i].length; j++) {
+                matrix.setEntry(i, j, values[i][j]);
+            }
+        }
+
+        return matrix;
     }
 
 
