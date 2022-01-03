@@ -11,6 +11,8 @@ import io.github.obasekiosa.raytracer.basic.Tuple3;
 
 import static io.github.obasekiosa.raytracer.geometry.GeometryTestUtils.verifyMatrix;
 import static io.github.obasekiosa.raytracer.geometry.GeometryTestUtils.verifyTuple3;
+import static io.github.obasekiosa.raytracer.geometry.GeometryTestUtils.verifyPoint3;
+import static io.github.obasekiosa.raytracer.geometry.GeometryTestUtils.verifyVector3;
 
 public class MatrixTest {
 
@@ -219,7 +221,7 @@ public class MatrixTest {
     
     
     @Test
-    public void test_InstanceMethod_Multiply_MatrixByTuple3ReturnTuple() {
+    public void test_InstanceMethod_Multiply_MatrixByTuple3ReturnTuple3() {
         double[][] values = {
                 { 1, 2, 3, 4 },
                 { 2, 4, 4, 2 },
@@ -240,6 +242,52 @@ public class MatrixTest {
 
         verifyTuple3(18, 24, 33, 1, result, this.EPISILON);
 
+    }
+    
+    @Test
+    public void test_InstanceMethod_Multiply_MatrixByPoint3ReturnPoint3() {
+        double[][] values = {
+                { 1, 2, 3, 4 },
+                { 2, 4, 4, 2 },
+                { 8, 6, 4, 1 },
+                { 0, 0, 0, 1 }
+        };
+
+        Matrix matrix = new Matrix(4);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix.setEntry(i, j, values[i][j]);
+            }
+        }
+
+        Point3 point3 = new Point3(1, 2, 3);
+
+        Point3 result = matrix.multiply(point3);
+
+        verifyPoint3(18, 24, 33, 1.0, result, this.EPISILON);
+    }
+    
+    @Test
+    public void test_InstanceMethod_Multiply_MatrixByVector3ReturnVector3() {
+        double[][] values = {
+                { 1, 2, 3, 4 },
+                { 2, 4, 4, 2 },
+                { 8, 6, 4, 1 },
+                { 0, 0, 0, 1 }
+        };
+
+        Matrix matrix = new Matrix(4);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix.setEntry(i, j, values[i][j]);
+            }
+        }
+
+        Vector3 point3 = new Vector3(1, 2, 3);
+
+        Vector3 result = matrix.multiply(point3);
+
+        verifyVector3(14, 22, 32, 0.0, result, this.EPISILON);
     }
     
     @Test
@@ -295,7 +343,34 @@ public class MatrixTest {
 
         Tuple3 result = identityMatrix.multiply(tuple3);
         boolean theSame = result.equals(tuple3);
-        assertTrue("Multiplying by the identity matrix does not change the Tuple", theSame);
+
+        assertTrue("Multiplying by the identity matrix changed the Tuple3", theSame);
+    }
+    
+    @Test
+    public void test_InstanceMethod_Multiply_IdentityMatrixByPoint3ReturnPoint3() {
+
+
+        Point3 point3 = new Point3(1, 2, 3);
+        Matrix identityMatrix = Matrix.identity(4);
+
+        Point3 result = identityMatrix.multiply(point3);
+        boolean theSame = result.equals(point3);
+        
+        assertTrue("Multiplying by the identity matrix changed the Point3", theSame);
+    }
+    
+    @Test
+    public void test_InstanceMethod_Multiply_IdentityMatrixByVector3ReturnVector3() {
+
+
+        Vector3 vector3 = new Vector3(1, 2, 3);
+        Matrix identityMatrix = Matrix.identity(4);
+
+        Vector3 result = identityMatrix.multiply(vector3);
+        boolean theSame = result.equals(vector3);
+
+        assertTrue("Multiplying by the identity matrix changed the Vector3", theSame);
     }
     
     @Test
