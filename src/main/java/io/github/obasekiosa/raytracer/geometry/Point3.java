@@ -1,7 +1,6 @@
 package io.github.obasekiosa.raytracer.geometry;
 
 import io.github.obasekiosa.raytracer.basic.Tuple3;
-import io.github.obasekiosa.raytracer.exceptions.UnImplementedMethodException;
 
 public class Point3 extends Tuple3 {
 
