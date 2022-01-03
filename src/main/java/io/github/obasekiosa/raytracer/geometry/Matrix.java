@@ -12,11 +12,14 @@ public class Matrix {
     private int cols;
 
     public Matrix(int rows, int columns) {
-        throw new UnImplementedMethodException();
+        if (rows <= 0 || columns <= 0) throw new IllegalArgumentException("rows and columns must be greater than 0");
+        this.matrix = new double[rows * columns];
+        this.rows = rows;
+        this.cols = columns;
     }
 
     public Matrix(int size) {
-        throw new UnImplementedMethodException();
+        this(size, size);
     }
 
     public int getRowCount() {
@@ -27,12 +30,20 @@ public class Matrix {
         return cols;
     }
 
+    private int getIndex(int row, int col) {
+        if (row < 0 || row >= this.rows) throw new IllegalArgumentException("row must be between 0 (inclusive) and " + this.rows);
+        if (col < 0 || col >= this.cols) throw new IllegalArgumentException("column must be between 0 (inclusive) and " + this.cols);
+        return this.cols * row + col;
+    }
+
     public void setEntry(int row, int column, double value) {
-        throw new UnImplementedMethodException();
+        int index = getIndex(row, column);
+        this.matrix[index] = value;
     }
 
     public double getEntry(int row, int columns) {
-        throw new UnImplementedMethodException();
+        int index = getIndex(row, columns);
+        return this.matrix[index];
     }
 
     @Override
