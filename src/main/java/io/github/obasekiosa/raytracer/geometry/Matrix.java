@@ -112,11 +112,19 @@ public class Matrix {
     }
 
     public static Matrix identity(int size) {
-        throw new UnImplementedMethodException();
+        if (size <= 0) throw new IllegalArgumentException("Argument size must be greater than 0");
+        Matrix result = new Matrix(size);
+
+        for (int i = 0; i < size; i++) {
+            result.setEntry(i, i, 1.0);
+        }
+
+        return result;
     }
 
     public Matrix identity() {
-        throw new UnImplementedMethodException();
+        int size = this.cols > this.rows ? this.cols : this.rows;
+        return Matrix.identity(size);
     }
 
     public static Matrix transpose(Matrix matrix) {
