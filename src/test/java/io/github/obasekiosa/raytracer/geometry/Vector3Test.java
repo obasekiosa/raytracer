@@ -32,6 +32,13 @@ public class Vector3Test {
     }
 
     @Test
+    public void test_StaticMethod_From_Tuple3ReturnPoint3() {
+        Tuple3 tuple3 = new Tuple3(4.3, -4.2, 3.1, 0.0);
+        Vector3 point3 = Vector3.from(tuple3);
+        assertTrue(point3 + " object is a Point3", point3 instanceof Tuple3);
+    }
+
+    @Test
     public void test_InstanceMethod_Add_TwoVector3AndReturnVector3() {
         Vector3 vector3 = new Vector3(4.3, -4.2, 3.1);
         Vector3 otherVector3 = new Vector3(5.3, -4.5, -3.3);

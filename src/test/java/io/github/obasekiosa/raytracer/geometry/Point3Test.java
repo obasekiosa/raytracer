@@ -34,6 +34,13 @@ public class Point3Test {
     }
 
     @Test
+    public void test_StaticMethod_From_Tuple3ReturnPoint3() {
+        Tuple3 tuple3 = new Tuple3(4.3, -4.2, 3.1, 1.0);
+        Point3 point3 = Point3.from(tuple3);
+        assertTrue(point3 + " object is a Point3", point3 instanceof Tuple3);
+    }
+
+    @Test
     public void test_InstanceMethod_Add_TwoPoint3AndReturnPoint3() {
         Point3 point3 = new Point3(4.3, -4.2, 3.1);
         Point3 otherPoint3 = new Point3(5.3, -4.5, -3.3);

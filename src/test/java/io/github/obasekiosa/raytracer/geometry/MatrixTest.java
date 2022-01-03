@@ -218,47 +218,6 @@ public class MatrixTest {
         verifyMatrix(valuesAxB, 4, 4, result, this.EPISILON);
     }
     
-    @Test
-    @Ignore
-    public void test_StaticMethod_Multiply_MatrixbyMatrixReturnMatrix() {
-        double[][] valuesA = {
-                { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 },
-                { 9, 8, 7, 6 },
-                { 5, 4, 3, 2 }
-        };
-
-        double[][] valuesB = {
-                { -2, 1, 2, 3 },
-                { 3, 2, 1, -1 },
-                { 4, 3, 6, 5 },
-                { 1, 2, 7, 8 }
-        };
-
-        double[][] valuesAxB = {
-                { 20, 22, 50, 48 },
-                { 44, 54, 114, 108 },
-                { 40, 58, 110, 102 },
-                { 16, 26, 46, 42 }
-        };
-
-        Matrix matrix = new Matrix(4);
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                matrix.setEntry(i, j, valuesA[i][j]);
-            }
-        }
-
-        Matrix otherMatrix = new Matrix(4);
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                otherMatrix.setEntry(i, j, valuesB[i][j]);
-            }
-        }
-
-        Matrix result = Matrix.multiply(matrix, otherMatrix);
-        verifyMatrix(valuesAxB, 4, 4, result, this.EPISILON);
-    }
     
     @Test
     public void test_InstanceMethod_Multiply_MatrixByTuple3ReturnTuple() {
