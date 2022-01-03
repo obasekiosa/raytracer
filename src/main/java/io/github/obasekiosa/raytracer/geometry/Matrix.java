@@ -79,15 +79,36 @@ public class Matrix {
     }
 
     public Matrix multiply(Matrix matrix) {
-        throw new UnImplementedMethodException();
-    }
+        if (this.cols != matrix.rows) {
+            throw new ArithmeticException("rows of argument must match cols of Matrix object");
+        }
 
-    public static Tuple3 multiply( Matrix matrix, Tuple3 tuple3) {
-        throw new UnImplementedMethodException();
+        Matrix result = new Matrix(this.rows, matrix.cols);
+
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < matrix.cols; j++) {
+                double value = 0;
+                for (int k = 0; k < this.cols; k++) {
+                    value += (this.getEntry(i, k) * matrix.getEntry(k, j));
+                    
+                }
+    
+                result.setEntry(i, j, value);
+            }
+        }
+
+        return result;
     }
 
     public Tuple3 multiply(Tuple3 tuple3) {
-        throw new UnImplementedMethodException();
+        if (this.rows != 4) throw new ArithmeticException("Matrix object must have 4 rows");
+
+        double x1 = this.getEntry(0, 0) * tuple3.getX1() + this.getEntry(0, 1) * tuple3.getX2() + this.getEntry(0, 2) * tuple3.getX3() + this.getEntry(0, 3) * tuple3.getX4();
+        double x2 = this.getEntry(1, 0) * tuple3.getX1() + this.getEntry(1, 1) * tuple3.getX2() + this.getEntry(1, 2) * tuple3.getX3() + this.getEntry(1, 3) * tuple3.getX4();
+        double x3 = this.getEntry(2, 0) * tuple3.getX1() + this.getEntry(2, 1) * tuple3.getX2() + this.getEntry(2, 2) * tuple3.getX3() + this.getEntry(2, 3) * tuple3.getX4();
+        double x4 = this.getEntry(3, 0) * tuple3.getX1() + this.getEntry(3, 1) * tuple3.getX2() + this.getEntry(3, 2) * tuple3.getX3() + this.getEntry(3, 3) * tuple3.getX4();
+
+        return new Tuple3(x1, x2, x3, x4);
     }
 
     public static Matrix identity(int size) {
