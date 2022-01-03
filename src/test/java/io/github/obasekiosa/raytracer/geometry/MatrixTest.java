@@ -438,7 +438,7 @@ public class MatrixTest {
             { -7, -1, 1 },
         };
 
-        Matrix matrix = new Matrix(3);
+        Matrix matrix = new Matrix(4);
         for(int i = 0; i < values.length; i++) {
             for(int j = 0; j < values[0].length; j++) {
                 matrix.setEntry(i, j, values[i][j]);
