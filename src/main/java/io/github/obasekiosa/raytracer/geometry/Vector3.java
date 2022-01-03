@@ -184,6 +184,26 @@ public class Vector3 extends Tuple3 {
         return new Vector3(tuple3.getX1(), tuple3.getX2(), tuple3.getX3());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Vector3 other = (Vector3) obj;
+        if (!equals(getX(), other.getX()))
+            return false;
+        if (!equals(getY(), other.getY()))
+            return false;
+        if (!equals(getZ(), other.getZ()))
+            return false;
+        if (!equals(getW(), other.getW()))
+            return false;
+        return true;
+    }
+
 
     @Override
     public String toString() {

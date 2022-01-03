@@ -1,5 +1,7 @@
 package io.github.obasekiosa.raytracer.basic;
 
+import io.github.obasekiosa.raytracer.geometry.GeometryContstants;
+
 public class Tuple3 {
 
     protected final double EPSILON = 1e-4;
@@ -169,22 +171,26 @@ public class Tuple3 {
         return result;
     }
 
+    protected boolean equals(double a, double b) {
+        return Math.abs(a - b) < GeometryContstants.EQUALITY_DELTA;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
+        if (getClass() != obj.getClass()) 
             return false;
         Tuple3 other = (Tuple3) obj;
-        if (Double.doubleToLongBits(x1) != Double.doubleToLongBits(other.x1))
+        if (!equals(x1, other.x1))
             return false;
-        if (Double.doubleToLongBits(x2) != Double.doubleToLongBits(other.x2))
+        if (!equals(x2, other.x2))
             return false;
-        if (Double.doubleToLongBits(x3) != Double.doubleToLongBits(other.x3))
+        if (!equals(x3, other.x3))
             return false;
-        if (Double.doubleToLongBits(x4) != Double.doubleToLongBits(other.x4))
+        if (!equals(x4, other.x4))
             return false;
         return true;
     }

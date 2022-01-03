@@ -123,6 +123,28 @@ public class Matrix {
         return new Tuple3(x1, x2, x3, x4);
     }
 
+    public Point3 multiply(Point3 point3) {
+        if (this.rows != 4) throw new ArithmeticException("Matrix object must have 4 rows");
+
+        double x1 = this.getEntry(0, 0) * point3.getX() + this.getEntry(0, 1) * point3.getY() + this.getEntry(0, 2) * point3.getZ() + this.getEntry(0, 3) * point3.getW();
+        double x2 = this.getEntry(1, 0) * point3.getX() + this.getEntry(1, 1) * point3.getY() + this.getEntry(1, 2) * point3.getZ() + this.getEntry(1, 3) * point3.getW();
+        double x3 = this.getEntry(2, 0) * point3.getX() + this.getEntry(2, 1) * point3.getY() + this.getEntry(2, 2) * point3.getZ() + this.getEntry(2, 3) * point3.getW();
+        //double x4 = this.getEntry(3, 0) * point3.getX() + this.getEntry(3, 1) * point3.getY() + this.getEntry(3, 2) * point3.getZ() + this.getEntry(3, 3) * point3.getW();
+
+        return new Point3(x1, x2, x3);
+    }
+
+    public Vector3 multiply(Vector3 vector3) {
+        if (this.rows != 4) throw new ArithmeticException("Matrix object must have 4 rows");
+
+        double x1 = this.getEntry(0, 0) * vector3.getX() + this.getEntry(0, 1) * vector3.getY() + this.getEntry(0, 2) * vector3.getZ() + this.getEntry(0, 3) * vector3.getW();
+        double x2 = this.getEntry(1, 0) * vector3.getX() + this.getEntry(1, 1) * vector3.getY() + this.getEntry(1, 2) * vector3.getZ() + this.getEntry(1, 3) * vector3.getW();
+        double x3 = this.getEntry(2, 0) * vector3.getX() + this.getEntry(2, 1) * vector3.getY() + this.getEntry(2, 2) * vector3.getZ() + this.getEntry(2, 3) * vector3.getW();
+        // double x4 = this.getEntry(3, 0) * vector3.getX() + this.getEntry(3, 1) * vector3.getY() + this.getEntry(3, 2) * vector3.getZ() + this.getEntry(3, 3) * vector3.getW();
+
+        return new Vector3(x1, x2, x3);
+    }
+
     public static Matrix identity(int size) {
         if (size <= 0) throw new IllegalArgumentException("Argument size must be greater than 0");
         Matrix result = new Matrix(size);

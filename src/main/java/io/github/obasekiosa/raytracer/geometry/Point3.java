@@ -129,6 +129,26 @@ public class Point3 extends Tuple3 {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Point3 other = (Point3) obj;
+        if (!equals(getX(), other.getX()))
+            return false;
+        if (!equals(getY(), other.getY()))
+            return false;
+        if (!equals(getZ(), other.getZ()))
+            return false;
+        if (!equals(getW(), other.getW()))
+            return false;
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "Point3 ( x=" + getX() + ", y=" + getY() + ", z=" + getZ() + " )";
     }
