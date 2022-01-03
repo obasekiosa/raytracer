@@ -181,7 +181,8 @@ public class Vector3 extends Tuple3 {
     }
 
     public static Vector3 from(Tuple3 tuple3) {
-        throw new UnImplementedMethodException();
+        // maybe scale all points by 1/tuple3.getX4()
+        return new Vector3(tuple3.getX1(), tuple3.getX2(), tuple3.getX3());
     }
 
 

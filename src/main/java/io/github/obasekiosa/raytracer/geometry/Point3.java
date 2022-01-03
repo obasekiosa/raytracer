@@ -125,7 +125,8 @@ public class Point3 extends Tuple3 {
     }
 
     public static Point3 from(Tuple3 tuple3) {
-        throw new UnImplementedMethodException();
+        // maybe scale all points by 1/tuple3.getX4()
+        return new Point3(tuple3.getX1(), tuple3.getX2(), tuple3.getX3());
     }
 
     @Override
