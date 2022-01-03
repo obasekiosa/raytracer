@@ -277,7 +277,26 @@ public class Matrix {
         return matrix;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Matrix [Matrix= \n");
 
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                sb.append("(x=")
+                        .append(i)
+                        .append(", y=")
+                        .append(j)
+                        .append(") -> ")
+                        .append(this.getEntry(i, j))
+                        .append("\t");
+            }
+            sb.append("\n");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 
     
 }
