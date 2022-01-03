@@ -139,10 +139,6 @@ public class Matrix {
         return Matrix.identity(size);
     }
 
-    public static Matrix transpose(Matrix matrix) {
-        throw new UnImplementedMethodException();
-    }
-
     public Matrix transpose() {
         Matrix result = new Matrix(this.cols, this.rows);
 
@@ -154,17 +150,20 @@ public class Matrix {
 
         return result;
     }
-    
-    public static Matrix invert(Matrix matrix) {
-        throw new UnImplementedMethodException();
-    }
 
     public Matrix inverse() {
-        throw new UnImplementedMethodException();
-    }
+        if (!this.isInvertible()) throw new ArithmeticException("This matrix is not invertible");
 
-    public static double determinant(Matrix matrix) {
-        throw new UnImplementedMethodException();
+        Matrix result = new Matrix(this.cols, this.rows); // the swap(signifies transpose operation) is irrelevant since matrix must be square
+        double det = this.determinant();
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                double entry = this.cofactor(i, j) / det;
+                result.setEntry(j, i, entry);
+            }
+        }
+
+        return result;
     }
 
     public double determinant() {
@@ -181,10 +180,6 @@ public class Matrix {
             }
             return det;
         }
-    }
-    
-    public static Matrix subMatrix(Matrix matrix, int row, int column) {
-        throw new UnImplementedMethodException();
     }
 
     public Matrix subMatrix(int row, int column) {
@@ -214,10 +209,6 @@ public class Matrix {
         return result;
     }
 
-    public static double minor(Matrix matrix, int row, int column) {
-        throw new UnImplementedMethodException();
-    }
-
     public double minor(int row, int column) {
         if (this.rows != this.cols) 
             throw new ArithmeticException(
@@ -240,10 +231,6 @@ public class Matrix {
 
     }
 
-    public static double cofactor(Matrix matrix, int row, int column) {
-        throw new UnImplementedMethodException();
-    }
-
     public double cofactor(int row, int column) {
         if (this.rows != this.cols)
             throw new ArithmeticException(
@@ -263,10 +250,6 @@ public class Matrix {
         double minor = this.minor(row, column);
         return minor * ((row + column) % 2 == 0 ? 1 : -1);
 
-    }
-
-    public static boolean invertible(Matrix matrix) {
-        throw new UnImplementedMethodException();
     }
 
     public boolean isInvertible() {
