@@ -259,7 +259,7 @@ public class MatrixTest {
     }
     
     @Test
-    public void test_StaticMethod_Multiply_MatrixByTuple3ReturnTuple() {
+    public void test_InstanceMethod_Multiply_MatrixByTuple3ReturnTuple() {
         double[][] values = {
                 { 1, 2, 3, 4 },
                 { 2, 4, 4, 2 },
@@ -276,7 +276,7 @@ public class MatrixTest {
 
         Tuple3 tuple3 = new Tuple3(1, 2, 3, 1);
 
-        Tuple3 result = Matrix.multiply(matrix, tuple3);
+        Tuple3 result = matrix.multiply(tuple3);
 
         verifyTuple3(18, 24, 33, 1, result, this.EPISILON);
 
