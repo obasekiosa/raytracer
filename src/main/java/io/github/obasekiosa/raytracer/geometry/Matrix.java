@@ -56,6 +56,18 @@ public class Matrix {
         return result;
     }
 
+    private boolean equals(double[] a, double[] b) {
+        if (a.length != b.length) return false;
+        for (int i = 0; i < a.length; i++) {
+            if (!equals(a[i], b[i])) return false;
+        }
+        return true;
+    }
+
+    private boolean equals(double a, double b) {
+        return Math.abs(a - b) < GeometryContstants.EQUALITY_DELTA;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -69,7 +81,7 @@ public class Matrix {
             return false;
         if (rows != other.rows)
             return false;
-        if (!Arrays.equals(matrix, other.matrix))
+        if (!equals(matrix, other.matrix))
             return false;
         return true;
     }
@@ -132,7 +144,15 @@ public class Matrix {
     }
 
     public Matrix transpose() {
-        throw new UnImplementedMethodException();
+        Matrix result = new Matrix(this.cols, this.rows);
+
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                result.setEntry(j, i, this.getEntry(i, j));
+            }
+        }
+
+        return result;
     }
     
     public static Matrix invert(Matrix matrix) {
@@ -148,7 +168,19 @@ public class Matrix {
     }
 
     public double determinant() {
-        throw new UnImplementedMethodException();
+        if (this.rows != this.cols) throw new ArithmeticException("Determinant is only valid for a square matrix. number of rows must equal number of columns");
+
+        if (this.rows == 1) return this.getEntry(0, 0);
+
+        if (this.rows == 2) return this.getEntry(0, 0) * this.getEntry(1, 1) - this.getEntry(0, 1) * this.getEntry(1, 0);
+        
+        else {
+            double det = 0;
+            for (int j = 0; j < this.cols; j++) {
+                det += this.getEntry(0, j) * this.cofactor(0, j);
+            }
+            return det;
+        }
     }
     
     public static Matrix subMatrix(Matrix matrix, int row, int column) {
@@ -156,7 +188,30 @@ public class Matrix {
     }
 
     public Matrix subMatrix(int row, int column) {
-        throw new UnImplementedMethodException();
+        if (this.rows == 1) throw new ArithmeticException("Can not find a sub matrix of a 1 x n Matrix");
+        if (this.cols == 1) throw new ArithmeticException("Can not find a sub matrix of a n x 1 Matrix");
+
+        if (row < 0 || row >= this.rows) throw new IllegalArgumentException("row out of bounds. row must be between 0 (inclusive) and " + this.rows);
+        if (column < 0 || column >= this.cols) throw new IllegalArgumentException("column out of bounds. column must be between 0 (inclusive) and " + this.cols);
+
+        Matrix result = new Matrix(this.rows - 1, this.cols - 1);
+
+        int resultRow = 0;
+        for (int i = 0; i < this.rows; i++) {
+            if (i == row) continue;
+
+            int resultCol = 0;
+            for (int j = 0; j < this.cols; j++){
+                if (j == column) continue;
+
+                result.setEntry(resultRow, resultCol, this.getEntry(i, j));
+                resultCol++;
+            }
+
+            resultRow++;
+        }
+
+        return result;
     }
 
     public static double minor(Matrix matrix, int row, int column) {
@@ -164,7 +219,25 @@ public class Matrix {
     }
 
     public double minor(int row, int column) {
-        throw new UnImplementedMethodException();
+        if (this.rows != this.cols) 
+            throw new ArithmeticException(
+                    "Minor is only valid for a square matrix. number of rows must equal number of columns");
+
+        if (this.rows == 1)
+            throw new ArithmeticException("Can not find a minor of a 1 x n Matrix");
+        if (this.cols == 1)
+            throw new ArithmeticException("Can not find a minor of a n x 1 Matrix");
+
+        if (row < 0 || row >= this.rows)
+            throw new IllegalArgumentException("row out of bounds. row must be between 0 (inclusive) and " + this.rows);
+        if (column < 0 || column >= this.cols)
+            throw new IllegalArgumentException(
+                    "column out of bounds. column must be between 0 (inclusive) and " + this.cols);
+
+        Matrix sub = this.subMatrix(row, column);
+        
+        return sub.determinant();
+
     }
 
     public static double cofactor(Matrix matrix, int row, int column) {
@@ -172,7 +245,24 @@ public class Matrix {
     }
 
     public double cofactor(int row, int column) {
-        throw new UnImplementedMethodException();
+        if (this.rows != this.cols)
+            throw new ArithmeticException(
+                    "Cofactor is only valid for a square matrix. number of rows must equal number of columns");
+
+        if (this.rows == 1)
+            throw new ArithmeticException("Can not find a cofactor of a 1 x n Matrix");
+        if (this.cols == 1)
+            throw new ArithmeticException("Can not find a cofactor of a n x 1 Matrix");
+
+        if (row < 0 || row >= this.rows)
+            throw new IllegalArgumentException("row out of bounds. row must be between 0 (inclusive) and " + this.rows);
+        if (column < 0 || column >= this.cols)
+            throw new IllegalArgumentException(
+                    "column out of bounds. column must be between 0 (inclusive) and " + this.cols);
+
+        double minor = this.minor(row, column);
+        return minor * ((row + column) % 2 == 0 ? 1 : -1);
+
     }
 
     public static boolean invertible(Matrix matrix) {
@@ -180,7 +270,8 @@ public class Matrix {
     }
 
     public boolean isInvertible() {
-        throw new UnImplementedMethodException();
+        if (this.rows != this.cols) return false;
+        return !equals(this.determinant(), 0);
     }
 
     public static Matrix from(double[][] values) {
